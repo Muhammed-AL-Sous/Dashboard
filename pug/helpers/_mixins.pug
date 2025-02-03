@@ -1,0 +1,13 @@
+mixin sidebarItems (link , icon , text)
+    li
+        a.sidebar-link(href=link + ".html" , class=text == pageName ? "active": " ")
+            i(class="fa-fw " + icon)
+            span #{text}
+
+mixin switchToggle(check)
+    label.switch
+        if check
+            input.toggle-checkbox(type="checkbox" checked)
+        else
+            input.toggle-checkbox(type="checkbox")
+        .toggle-switch

@@ -1,0 +1,296 @@
+// Import Variabels File
+@use "../helpers/variables" as *;
+
+// Import Mixins File
+@use "../helpers/mixins" as *;
+
+.sidebar {
+  overflow-y: auto;
+  padding: 20px;
+  width: 280px;
+  height: 100vh;
+  background-color: $bg-primary;
+  flex-shrink: 0;
+  box-shadow: rgba(1, 5, 17, 0.3) 0px 8px 28px 0px;
+  @include transition(0.6s);
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    @include border-r(10px);
+    background-color: rgb(11, 23, 57);
+    visibility: hidden;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  &:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+  }
+
+  .brand {
+    @include flexbox("", "center", "", "", "10px");
+    img {
+      width: 30px;
+    }
+    h1 {
+      color: $white-color;
+    }
+  }
+  .search {
+    position: relative;
+    margin: 30px 0 10px;
+    i {
+      position: absolute;
+      color: $gray-color;
+      top: 49%;
+      left: 12px;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      font-size: 14px;
+    }
+    input[type="text"] {
+      background: none;
+      caret-color: $gray-color;
+      color: $gray-color;
+      background-color: #0b1739;
+      border: 1px solid;
+      border-color: rgb(52, 59, 79);
+      @include border-r(4px);
+      padding-left: 30px;
+      width: 95%;
+      display: block;
+      height: 45px;
+      &:focus {
+        outline: none;
+      }
+      &::placeholder {
+        color: $gray-color;
+      }
+    }
+  }
+  .page-links {
+    list-style: none;
+    li {
+      @extend %li-sidebar;
+      .sidebar-link {
+        @extend %link-sidebar;
+      }
+    }
+  }
+  hr {
+    border-width: 0px 0px thin;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.12);
+    margin: 16px 0;
+    background-color: rgb(52, 59, 79);
+  }
+  .page-links-second {
+    list-style: none;
+    li {
+      &:not(:last-child) {
+        @extend %li-sidebar;
+        a {
+          @extend %link-sidebar;
+        }
+      }
+    }
+    .sidebar-check {
+      padding: 10px;
+      .toggle-checkbox {
+        -webkit-appearance: none;
+        appearance: none;
+        display: none;
+        &:checked {
+          + .toggle-switch {
+            background-color: $pink-color;
+            @include transition(0.6s);
+            &::before {
+              left: 56px;
+              color: $orange-color;
+              content: "\f186";
+              @include transition(0.6s);
+            }
+          }
+        }
+      }
+      .toggle-switch {
+        position: relative;
+        width: 78px;
+        height: 25px;
+        @include border-r(16px);
+        cursor: pointer;
+        @include transition(0.6s);
+        background-color: $gray-color;
+        &::before {
+          font-family: var(--fa-style-family-classic);
+          content: "\f185";
+          font-weight: 900;
+          position: absolute;
+          background-color: $white-color;
+          color: $orange-color;
+          width: 19px;
+          height: 19px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          top: 3px;
+          left: 4px;
+          @include transition(0.6s);
+        }
+      }
+    }
+  }
+  .account-settings {
+    margin: 20px 0;
+    padding: 10px 0px 10px 5px;
+    @include transition(0.5s);
+    cursor: pointer;
+    &:hover {
+      background-color: $bg-hover-components;
+      @include border-r(6px);
+    }
+    @include flexbox("", "center", "", "", "10px");
+    .pic {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      @include border-r(50%);
+    }
+    .info-account {
+      h5 {
+        color: #ddd;
+      }
+      span {
+        color: $gray-color;
+        font-size: 13px;
+      }
+    }
+  }
+  .get-started {
+    display: block;
+    border: none;
+    background: $background-buttons;
+    color: $white-color;
+    width: 95%;
+    height: 45px;
+    @include border-r(4px);
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    cursor: pointer;
+    i {
+      margin-left: 10px;
+    }
+  }
+}
+
+body[data-theme="light"] {
+  .sidebar {
+    background-color: $white-color;
+    &::-webkit-scrollbar-thumb {
+      background-color: #bbb;
+    }
+    .brand {
+      h1 {
+        color: $black-color;
+      }
+    }
+    .search {
+      i {
+        color: $primary-color;
+      }
+      input[type="text"] {
+        color: $primary-color;
+        color: $primary-color;
+        background-color: #ddd;
+        border-color: #bbb;
+        &::placeholder {
+          color: $primary-color;
+        }
+      }
+    }
+    .page-links {
+      li {
+        &:hover {
+          background-color: #ddd;
+        }
+        .sidebar-link {
+          color: $black-color;
+          &.active {
+            color: $pink-color;
+          }
+        }
+      }
+    }
+    .page-links-second {
+      li {
+        &:not(:last-child) {
+          &:hover {
+            background-color: #ddd;
+          }
+          a {
+            color: $black-color;
+            &.active {
+              color: $pink-color;
+            }
+          }
+        }
+      }
+    }
+    .account-settings {
+      &:hover {
+        background-color: #ddd;
+      }
+      .info-account {
+        h5 {
+          color: $bg-components;
+        }
+        span {
+          color: $bg-hover-components;
+          font-weight: 600;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+// =============================================================================== //
+
+// Start Placeholder
+
+%li-sidebar {
+  padding: 15px 5px;
+  @include transition(0.5s);
+  cursor: pointer;
+  &:hover {
+    background-color: $bg-hover-components;
+    @include border-r(6px);
+  }
+  span {
+    @include transition(0.5s);
+  }
+  &:hover span {
+    padding-left: 5px;
+  }
+}
+
+%link-sidebar {
+  text-decoration: none;
+  color: rgb(174 185 225 / 50%);
+  display: block;
+  width: 100%;
+  font-weight: 600;
+  &.active {
+    color: $pink-color;
+  }
+  i {
+    margin-right: 10px;
+  }
+}
+// End Placeholder

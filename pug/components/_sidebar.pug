@@ -1,0 +1,26 @@
+//- Import Mixins File
+include ../helpers/_mixins.pug
+
+aside.sidebar
+    .brand
+        img(src="../images/logo.png" alt="logo")
+        h1 #{dashboardName}
+    .search
+        i.fa-solid.fa-magnifying-glass
+        input(type="text" placeholder="Search For ...")
+    ul.page-links 
+        each item in [["index" , "fa-solid fa-house-chimney" , "Dashboard"], ["profile" ,"fa-solid fa-user" , "Profile"], ["projects" , "fa-solid fa-list-check" , "Projects"], ["pricing" , "fa-solid fa-dollar-sign" , "Pricing"]]
+            +sidebarItems(item[0] , item[1] , item[2])
+    hr
+    ul.page-links-second
+        each Item in [["settings" , "fa-solid fa-gear" , "Settings"] , ["index", "fa-solid fa-arrow-right-from-bracket fa-rotate-180", "Logout"]]
+            +sidebarItems(Item[0] , Item[1] , Item[2])
+        li.sidebar-check
+            +switchToggle(false)
+    .account-settings
+        img(src="../images/profile.jpg" , alt="Profile" class="pic")
+        .info-account
+            h5 Muhammed AL-Sous
+            span Account Settings
+    button.get-started Get Started
+        i.fa-solid.fa-arrow-right

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard With Html , Css , JavaScript , Sass , Pugjs">
+    <title>Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/aos.min.css">
+    <link rel="stylesheet" href="css/dashboard.min.css">
+  </head>
+  <body>
+    <div class="page">
+      <aside class="sidebar">
+        <div class="brand"><img src="../images/logo.png" alt="logo">
+          <h1>Dashboard</h1>
+        </div>
+        <div class="search"><i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search For ...">
+        </div>
+        <ul class="page-links"> 
+                <li><a class="sidebar-link active" href="index.html"><i class="fa-fw fa-solid fa-house-chimney"></i><span>Dashboard</span></a></li>
+                <li><a class="sidebar-link  " href="profile.html"><i class="fa-fw fa-solid fa-user"></i><span>Profile</span></a></li>
+                <li><a class="sidebar-link  " href="projects.html"><i class="fa-fw fa-solid fa-list-check"></i><span>Projects</span></a></li>
+                <li><a class="sidebar-link  " href="pricing.html"><i class="fa-fw fa-solid fa-dollar-sign"></i><span>Pricing</span></a></li>
+        </ul>
+        <hr>
+        <ul class="page-links-second">
+                <li><a class="sidebar-link  " href="settings.html"><i class="fa-fw fa-solid fa-gear"></i><span>Settings</span></a></li>
+                <li><a class="sidebar-link  " href="index.html"><i class="fa-fw fa-solid fa-arrow-right-from-bracket fa-rotate-180"></i><span>Logout</span></a></li>
+          <li class="sidebar-check">
+                  <label class="switch">
+                    <input class="toggle-checkbox" type="checkbox">
+                    <div class="toggle-switch"></div>
+                  </label>
+          </li>
+        </ul>
+        <div class="account-settings"><img class="pic" src="../images/profile.jpg" alt="Profile">
+          <div class="info-account">
+            <h5>Muhammed AL-Sous</h5><span>Account Settings</span>
+          </div>
+        </div>
+        <button class="get-started">Get Started<i class="fa-solid fa-arrow-right"></i></button>
+      </aside>
+      <div class="content"></div>
+    </div>
+    <script src="js/aos.min.js"></script>
+    <script src="js/sweetalert2.all.min.js"> </script>
+    <script src="js/scripts.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>
