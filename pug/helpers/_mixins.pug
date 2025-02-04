@@ -1,4 +1,4 @@
-mixin sidebarItems (link , icon , text)
+mixin sidebarItems(link , icon , text)
     li
         a.sidebar-link(href=link + ".html" , class=text == pageName ? "active": " ")
             i(class="fa-fw " + icon)
@@ -11,3 +11,38 @@ mixin switchToggle(check)
         else
             input.toggle-checkbox(type="checkbox")
         .toggle-switch
+
+
+mixin notification(Type, Content, Time)
+    li
+        .icon
+            if Type.startsWith("fa-")
+                i(class=Type)
+            else
+                img(src=Type, alt="Notification Icon")
+        .noti-content
+            span #{Content}
+            span #{Time}
+
+
+mixin messages(image , name , content , time)
+    li
+        .image
+            img(src=image)
+        .info
+            .name #{name}
+            .content #{content}
+            .time #{time}
+
+mixin quick-list(ICON , TEXT)
+    li
+        .quick-icon
+            i(class=ICON)
+        span.text #{TEXT}
+
+
+mixin profile-list(link , icon , text)
+    li
+        a.profile-list-link(href=link + ".html")
+            i(class="fa-fw " + icon)
+            span #{text}

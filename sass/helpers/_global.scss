@@ -1,7 +1,15 @@
+// Import Variabels File
+@use "../helpers/variables" as *;
+
+// Import Mixins File
+@use "../helpers/mixins" as *;
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  list-style: none;
+  text-decoration: none;
 }
 
 html {
@@ -11,4 +19,8 @@ html {
 body {
   font-family: "Mona Sans", serif;
   // font-family: "Work Sans", serif;
+}
+
+.page {
+  @include flexbox($gap: "10px");
 }
