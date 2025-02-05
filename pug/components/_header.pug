@@ -3,41 +3,47 @@ header
     .noti-group
         .noti-btn
             i.fa-regular.fa-bell.fa-shake.fa-lg
-        ul.noti-list
+        .noti-container
             h4 You Have 8 Notifications
             hr
-            +notification("fa-solid fa-user-plus fa-fw add-user" , "New user registered" , "5 minutes ago")
-            +notification("./images/Steve_Jobs.jpg" , "Steve Jobs send message to you" , "17 minutes ago")
-            +notification("fa-regular fa-comment fa-fw chat" , "Salma commented on admin" , "30 minutes ago")
-            +notification("./images/Leah_Culver.jpg" , "Leah Culver send message to you" , "59 minutes ago")
-            +notification("fa-regular fa-heart fa-fw love" , "Sarah reacted to your comment" , "1 hour ago")
-            +notification("./images/Chris_Coyier.png" , "Chris Coyier send message to you" , "35 minutes ago")
-            +notification("fa-regular fa-thumbs-up fa-fw like" , "Ghazal likes your answer to a question" , "2 hour ago")
-            +notification("./images/Marissa_Mayer.png" , "Marissa Mayer send message to you" , "55 minutes ago")
-        .message
+            ul.noti-list
+                +notification("fa-solid fa-user-plus fa-fw add-user" , "New user registered" , "5 minutes ago")
+                +notification("./images/Steve_Jobs.jpg" , "Steve Jobs send message to you" , "17 minutes ago")
+                +notification("fa-regular fa-comment fa-fw chat" , "Salma commented on admin" , "30 minutes ago")
+                +notification("./images/Leah_Culver.jpg" , "Leah Culver send message to you" , "59 minutes ago")
+                +notification("fa-regular fa-heart fa-fw love" , "Sarah reacted to your comment" , "1 hour ago")
+                +notification("./images/Chris_Coyier.png" , "Chris Coyier send message to you" , "35 minutes ago")
+                +notification("fa-regular fa-thumbs-up fa-fw like" , "Ghazal likes your answer to a question" , "2 hour ago")
+                +notification("./images/Marissa_Mayer.png" , "Marissa Mayer send message to you" , "55 minutes ago")
+        .message-btn
             i.fa-regular.fa-envelope.fa-lg
-        //- ul.list-msg
-        //-     .title-msg
-        //-         .message Messages
-        //-         a(href="#") Mark all as read
-        //-     +messages("./images/pic_message-01.jpg" , "Yaser Masoud" , "How are you ?" , "7 hour ago")
-        //-     +messages("./images/pic_message-02.jpg" , "Ahmad Sayed" , "OK , Thanks !" , "1 hour ago")
-        //-     +messages("./images/pic_message-03.jpg" , "Salem Adeeb" , "Ready for the meeting today..." , "10 minutes ago")
-        //-     +messages("./images/pic_message-04.jpg" , "Abdullah Yasin" , "Hi Mohammed, where are you?" , "30 minutes ago")
-        //-         .foot-msg
-        //-     a(href="#") See all Messages
-        //-      i.fa-solid.fa-angle-right
-        .quick-action
+        .msg-container
+            .title-msg
+                .message Messages
+                a(href="#") Mark all as read
+            hr
+            ul.list-msg
+                +messages("./images/pic_message-01.jpg" , "Yaser Masoud" , "How are you ?" , "7 hour ago")
+                +messages("./images/pic_message-02.jpg" , "Ahmad Sayed" , "OK , Thanks !" , "1 hour ago")
+                +messages("./images/pic_message-03.jpg" , "Salem Adeeb" , "Ready for the meeting today..." , "10 minutes ago")
+                +messages("./images/pic_message-04.jpg" , "Abdullah Yasin" , "Hi Mohammed, where are you?" , "30 minutes ago")
+            hr
+            .foot-msg
+                a(href="#") See all Messages
+                    i.fa-solid.fa-angle-right
+        .quick-action-btn
             i.fa-solid.fa-layer-group
-        //- ul.quick-action-list
-        //-     h4 Quick Actions
-        //-     span Shortcuts
-        //-     +quick-list("fa-regular fa-calendar-days fa-fw" , "Calendar")
-        //-     +quick-list("fa-regular fa-map fa-fw" , "Maps")
-        //-     +quick-list("fa-regular fa-file-excel fa-fw" , "Reports")
-        //-     +quick-list("fa-regular fa-envelope fa-fw" , "Emails")
-        //-     +quick-list("fa-solid fa-file-invoice-dollar fa-fw" , "Invoice")
-        //-     +quick-list("fa-regular fa-credit-card fa-fw" , "Payments")
+        .quickAc-container
+            .quick-title
+                h4 Quick Actions
+                span.des Shortcuts
+            ul.quick-action-list
+                +quick-list("fa-regular fa-calendar-days fa-fw" , "Calendar")
+                +quick-list("fa-regular fa-map fa-fw" , "Maps")
+                +quick-list("fa-regular fa-file-excel fa-fw" , "Reports")
+                +quick-list("fa-regular fa-envelope fa-fw" , "Emails")
+                +quick-list("fa-solid fa-file-invoice-dollar fa-fw" , "Invoice")
+                +quick-list("fa-regular fa-credit-card fa-fw" , "Payments")
         .person
             .person-title
                 img(src="./images/profile.jpg" , alt="profile")

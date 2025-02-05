@@ -45,19 +45,47 @@ themeCheckBox.addEventListener("change", (e) => {
 // ===================================================================================== //
 
 // Show - Hide Notifications & Messages & Profile Details
+let notiBtn = document.querySelector(".noti-btn");
+let notiList = document.querySelector(".noti-container");
+let msgBtn = document.querySelector(".message-btn");
+let msgList = document.querySelector(".msg-container");
 
-let notificationsBtn = document.querySelector(".noti-btn");
-let notificationsList = document.querySelector(".noti-list");
+// Function Close All Opened List In Header Before Toggle Another List
+function closeAllLists() {
+  notiList.classList.remove("show-noti");
+  msgList.classList.remove("show-msg");
+}
 
-notificationsBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  notificationsList.classList.toggle("show-noti");
-});
+// Function Toggle Button In Header
+function toggleBtn(btn, list, className) {
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
 
-document.addEventListener("click", (e) => {
-  if (!e.target.closest(".noti-btn") && !notificationsList.contains(e.target)) {
-    if (notificationsList.classList.contains("show-noti")) {
-      notificationsList.classList.remove("show-noti");
+    // إذا كانت القائمة مفتوحة بالفعل، أغلقها فقط
+    if (list.classList.contains(className)) {
+      list.classList.remove(className);
+    } else {
+      closeAllLists(); // إغلاق جميع القوائم قبل فتح القائمة الجديدة
+      list.classList.add(className);
     }
-  }
-});
+  });
+}
+
+// Funtion Close Current List When Click At Any Where
+function closeList(btnSelector, list, className) {
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(`.${btnSelector}`) && !list.contains(e.target)) {
+      list.classList.remove(className);
+    }
+  });
+}
+
+// Trigger Functions Notifications
+toggleBtn(notiBtn, notiList, "show-noti");
+closeList("noti-btn", notiList, "show-noti");
+
+// Trigger Functions Messages
+toggleBtn(msgBtn, msgList, "show-msg");
+closeList("message-btn", msgList, "show-msg");
+
+// ===================================================================================== //

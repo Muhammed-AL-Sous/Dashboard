@@ -44,32 +44,12 @@ header {
         color: $gray-color;
       }
     }
-    .noti-list {
-      position: absolute;
-      background-color: rgb(11, 23, 57);
-      -webkit-box-shadow: rgba(1, 5, 17, 0.3) 0px 8px 28px 0px;
-      box-shadow: rgba(1, 5, 17, 0.3) 0px 8px 28px 0px;
-      top: 80px;
-      right: 302px;
-      padding: 15px;
-      @include border-r(12px);
-      overflow-y: auto;
-      max-width: 300px;
-      max-height: 400px;
-      &::-webkit-scrollbar {
-        width: 5px;
-      }
-      &::-webkit-scrollbar-thumb {
-        background-color: $bg-hover-components;
-        @include border-r(12px);
-        display: none;
-      }
-      &:hover::-webkit-scrollbar-thumb {
-        display: block;
-      }
+    .noti-container {
       @include transition(0.9s);
       transform-origin: top right;
       display: none;
+      @extend %details-container;
+      right: 302px;
       &.show-noti {
         display: block;
         animation: showDetails 0.9s;
@@ -83,72 +63,207 @@ header {
         font-weight: 800;
       }
       hr {
-        border-width: 0px 0px thin;
-        border-style: solid;
-        border-color: rgba(0, 0, 0, 0.12);
+        @extend %hr-horizontal;
         margin: 15px 0 5px;
-        background-color: rgb(52, 59, 79);
       }
-      li {
-        cursor: pointer;
-        @include flexbox($ai: "center", $gap: "10px");
-        border-width: 0px 0px thin;
-        border-style: solid;
-        border-color: rgba(255, 255, 255, 0.12);
-        padding: 10px 0;
-        @include transition(0.6s);
-        &:hover {
-          background-color: $bg-hover-components;
+      .noti-list {
+        overflow-y: auto;
+        max-height: 300px;
+        @extend %scrollBar-header-buttons;
+
+        li {
+          cursor: pointer;
+          @include flexbox($ai: "center", $gap: "10px");
+          border-width: 0px 0px thin;
+          border-style: solid;
+          border-color: rgba(255, 255, 255, 0.12);
+          padding: 10px 0;
+          @include transition(0.6s);
+          &:hover {
+            background-color: $bg-hover-components;
+          }
+          &:last-of-type {
+            border-width: 0px;
+            padding-bottom: 0;
+          }
+          .icon {
+            width: 40px;
+            height: 40px;
+            @include border-r(50%);
+            color: $white-color;
+            @include flexbox("center", "center");
+            &:has(.add-user) {
+              background-color: $blue-color-alt;
+            }
+            &:has(.chat) {
+              background-color: $green-color;
+            }
+            &:has(.love) {
+              background-color: $red-color;
+            }
+            &:has(.like) {
+              background-color: $blue-color;
+            }
+          }
+          img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            @include border-r(50%);
+          }
         }
-        &:last-of-type {
-          border-width: 0px;
-          padding-bottom: 0;
+        .noti-content {
+          span:first-child {
+            display: block;
+            color: $white-color;
+            font-size: 12px;
+            font-weight: 500;
+          }
+          span:last-child {
+            color: $gray-color;
+            font-size: 11px;
+            font-weight: 500;
+          }
         }
-        .icon {
-          width: 40px;
-          height: 40px;
-          @include border-r(50%);
+      }
+    }
+
+    .message-btn {
+      @extend %button-hover;
+      position: relative;
+    }
+    .msg-container {
+      right: 245px;
+      @extend %details-container;
+      @include transition(0.9s);
+      transform-origin: top right;
+      display: none;
+      &.show-msg {
+        display: block;
+        animation: showDetails 0.9s;
+        -webkit-animation: showDetails 0.9s;
+      }
+      .title-msg {
+        @include flexbox("space-between", "center");
+        padding: 5px 0 10px;
+        .message {
+          font-size: 15px;
+          font-family: "Work Sans", serif;
+          font-weight: 500;
           color: $white-color;
-          @include flexbox("center", "center");
-          &:has(.add-user) {
-            background-color: $blue-color-alt;
-          }
-          &:has(.chat) {
-            background-color: $green-color;
-          }
-          &:has(.love) {
-            background-color: $red-color;
-          }
-          &:has(.like) {
-            background-color: $blue-color;
-          }
         }
-        img {
-          width: 40px;
-          height: 40px;
-          object-fit: cover;
-          @include border-r(50%);
+        > a {
+          font-family: "Work Sans", serif;
+          font-size: 14px;
+          font-weight: 500;
+          color: $white-color;
         }
       }
-      .noti-content {
-        span:first-child {
+      hr {
+        @extend %hr-horizontal;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+      .list-msg {
+        max-height: 250px;
+        overflow-y: auto;
+        padding-right: 5px;
+        @extend %scrollBar-header-buttons;
+        li {
+          @include flexbox($ai: "center", $gap: "15px");
+          padding: 10px 0;
+          cursor: pointer;
+          @include transition(0.6s);
+          &:hover {
+            background-color: $bg-hover-components;
+          }
+          border-width: 0px 0px thin;
+          border-style: solid;
+          border-color: rgba(255, 255, 255, 0.12);
+          &:last-of-type {
+            border-width: 0px;
+            padding-bottom: 0;
+          }
+          .image {
+            img {
+              width: 40px;
+              height: 40px;
+              object-fit: cover;
+              @include border-r(50%);
+            }
+          }
+          .info {
+            .name {
+              font-family: "Work Sans", serif;
+              font-size: 13px;
+              color: $gray-color;
+              font-weight: 700;
+            }
+            .contentMsg {
+              font-family: "Work Sans", serif;
+              font-size: 12px;
+              color: rgb(174 185 225 / 70%);
+              margin: 5px 0;
+              font-weight: 600;
+            }
+            .time {
+              font-size: 10px;
+              color: rgb(174 185 225 / 50%);
+              font-weight: 500;
+            }
+          }
+        }
+      }
+      .foot-msg {
+        padding: 0 10px;
+        > a {
+          font-family: "Work Sans", serif;
+          font-size: 14px;
+          font-weight: 500;
+          color: $white-color;
           display: block;
-          color: $white-color;
-          font-size: 12px;
-          font-weight: 500;
-        }
-        span:last-child {
-          color: $gray-color;
-          font-size: 11px;
-          font-weight: 500;
+          width: 100%;
+          > i {
+            float: right;
+          }
         }
       }
     }
-    .message {
+    .quick-action-btn {
       @extend %button-hover;
+      position: relative;
     }
-    .quick-action {
-      @extend %button-hover;
+    .quickAc-container {
+      top: 80px;
+      right: 190px;
+      position: absolute;
+      background-color: $bg-components;
+      -webkit-box-shadow: rgba(1, 5, 17, 0.3) 0px 8px 28px 0px;
+      box-shadow: rgba(1, 5, 17, 0.3) 0px 8px 28px 0px;
+      @include border-r(12px);
+      .quick-title {
+        background: $background-buttons;
+        color: $white-color;
+        > h4 {
+        }
+        > .des {
+        }
+      }
+
+      .quick-action-list {
+        max-width: 320px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 10px;
+        li {
+          .quick-icon {
+            i {
+            }
+          }
+          .text {
+          }
+        }
+      }
     }
     .person {
       .person-title {
@@ -215,5 +330,37 @@ header {
   &:hover {
     background-color: $bg-hover-components;
   }
+}
+
+%details-container {
+  position: absolute;
+  background-color: $bg-components;
+  -webkit-box-shadow: rgba(1, 5, 17, 0.3) 0px 8px 28px 0px;
+  box-shadow: rgba(1, 5, 17, 0.3) 0px 8px 28px 0px;
+  top: 80px;
+  padding: 15px;
+  @include border-r(12px);
+  max-width: 300px;
+}
+
+%scrollBar-header-buttons {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $bg-hover-components;
+    @include border-r(12px);
+    display: none;
+  }
+  &:hover::-webkit-scrollbar-thumb {
+    display: block;
+  }
+}
+
+%hr-horizontal {
+  border-width: 0px 0px thin;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.12);
+  background-color: rgb(52, 59, 79);
 }
 // End Placeholder

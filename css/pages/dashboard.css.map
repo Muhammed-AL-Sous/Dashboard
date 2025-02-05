@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACA,gCAAgC;AAGhC,6BAA6B;AAG7B,wBAAwB;AAGxB,2BAA2B;AAG3B,4BAA4B",
+"sources": ["../../sass/pages/dashboard.scss"],
+"names": [],
+"file": "dashboard.css"
+}
