@@ -1,0 +1,219 @@
+// Import Variabels File
+@use "../helpers/variables" as *;
+
+// Import Mixins File
+@use "../helpers/mixins" as *;
+
+header {
+  padding: 20px;
+  @include flexbox("space-between", "center");
+  .page-name {
+    color: $white-color;
+    font-family: "Work Sans", serif;
+    font-size: 23px;
+  }
+  .noti-group {
+    @include flexbox($ai: "center", $gap: "20px");
+    .noti-btn {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      @include border-r(50%);
+      background-color: $bg-hover-components;
+      @include flexbox("center", "center");
+      cursor: pointer;
+      &::before {
+        content: "";
+        position: absolute;
+        background-color: #31ce36;
+        width: 15px;
+        height: 15px;
+        top: -6px;
+        right: -6px;
+        @include border-r(50%);
+      }
+      &::after {
+        content: "8";
+        color: #fff;
+        position: absolute;
+        font-size: 12px;
+        top: -7px;
+        right: -2px;
+      }
+      i {
+        color: $gray-color;
+      }
+    }
+    .noti-list {
+      position: absolute;
+      background-color: rgb(11, 23, 57);
+      -webkit-box-shadow: rgba(1, 5, 17, 0.3) 0px 8px 28px 0px;
+      box-shadow: rgba(1, 5, 17, 0.3) 0px 8px 28px 0px;
+      top: 80px;
+      right: 302px;
+      padding: 15px;
+      @include border-r(12px);
+      overflow-y: auto;
+      max-width: 300px;
+      max-height: 400px;
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: $bg-hover-components;
+        @include border-r(12px);
+        display: none;
+      }
+      &:hover::-webkit-scrollbar-thumb {
+        display: block;
+      }
+      @include transition(0.9s);
+      transform-origin: top right;
+      display: none;
+      &.show-noti {
+        display: block;
+        animation: showDetails 0.9s;
+        -webkit-animation: showDetails 0.9s;
+      }
+      h4 {
+        color: $gray-color;
+        text-align: center;
+        margin: 5px auto 15px;
+        letter-spacing: 1px;
+        font-weight: 800;
+      }
+      hr {
+        border-width: 0px 0px thin;
+        border-style: solid;
+        border-color: rgba(0, 0, 0, 0.12);
+        margin: 15px 0 5px;
+        background-color: rgb(52, 59, 79);
+      }
+      li {
+        cursor: pointer;
+        @include flexbox($ai: "center", $gap: "10px");
+        border-width: 0px 0px thin;
+        border-style: solid;
+        border-color: rgba(255, 255, 255, 0.12);
+        padding: 10px 0;
+        @include transition(0.6s);
+        &:hover {
+          background-color: $bg-hover-components;
+        }
+        &:last-of-type {
+          border-width: 0px;
+          padding-bottom: 0;
+        }
+        .icon {
+          width: 40px;
+          height: 40px;
+          @include border-r(50%);
+          color: $white-color;
+          @include flexbox("center", "center");
+          &:has(.add-user) {
+            background-color: $blue-color-alt;
+          }
+          &:has(.chat) {
+            background-color: $green-color;
+          }
+          &:has(.love) {
+            background-color: $red-color;
+          }
+          &:has(.like) {
+            background-color: $blue-color;
+          }
+        }
+        img {
+          width: 40px;
+          height: 40px;
+          object-fit: cover;
+          @include border-r(50%);
+        }
+      }
+      .noti-content {
+        span:first-child {
+          display: block;
+          color: $white-color;
+          font-size: 12px;
+          font-weight: 500;
+        }
+        span:last-child {
+          color: $gray-color;
+          font-size: 11px;
+          font-weight: 500;
+        }
+      }
+    }
+    .message {
+      @extend %button-hover;
+    }
+    .quick-action {
+      @extend %button-hover;
+    }
+    .person {
+      .person-title {
+        position: relative;
+        @include flexbox("center", "center", $gap: "10px");
+        cursor: pointer;
+        img {
+          width: 35px;
+          height: 35px;
+          @include border-r(50%);
+          object-fit: cover;
+        }
+        span {
+          color: $white-color;
+          font-weight: 500;
+          font-size: 14px;
+        }
+        &::before {
+          content: "Profile";
+          position: absolute;
+          background-color: #5a5a5c;
+          color: #fff;
+          width: fit-content;
+          bottom: -31px;
+          padding: 5px 10px;
+          font-size: 14px;
+          font-family: "fangsong";
+          @include border-r(6px);
+          opacity: 0;
+          @include transition(0.6s);
+        }
+        &:hover::before {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
+// ====================================================================== //
+
+// Animtion Show Notifications
+
+@include keyF(showDetails) {
+  from {
+    @include transform(scale(0));
+  }
+  to {
+    @include transform(scale(1));
+  }
+}
+
+// ====================================================================== //
+
+// Start Placeholder
+%button-hover {
+  color: $gray-color;
+  cursor: pointer;
+  @include transition(0.6s);
+  width: 40px;
+  height: 40px;
+  @include border-r(50%);
+  @include flexbox("center", "center");
+  &:hover {
+    background-color: $bg-hover-components;
+  }
+}
+// End Placeholder

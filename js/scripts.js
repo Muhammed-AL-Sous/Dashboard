@@ -43,3 +43,21 @@ themeCheckBox.addEventListener("change", (e) => {
 });
 
 // ===================================================================================== //
+
+// Show - Hide Notifications & Messages & Profile Details
+
+let notificationsBtn = document.querySelector(".noti-btn");
+let notificationsList = document.querySelector(".noti-list");
+
+notificationsBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  notificationsList.classList.toggle("show-noti");
+});
+
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".noti-btn") && !notificationsList.contains(e.target)) {
+    if (notificationsList.classList.contains("show-noti")) {
+      notificationsList.classList.remove("show-noti");
+    }
+  }
+});

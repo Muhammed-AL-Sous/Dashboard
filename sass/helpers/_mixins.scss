@@ -26,6 +26,14 @@
   -o-transition: $args;
 }
 
+@mixin transform($args...) {
+  transform: $args;
+  -webkit-transform: $args;
+  -moz-transform: $args;
+  -ms-transform: $args;
+  -o-transform: $args;
+}
+
 @mixin overlay($color, $opacity, $z-index) {
   position: absolute;
   top: 0;
@@ -34,4 +42,14 @@
   height: 100%;
   background-color: rgba($color, $opacity);
   z-index: $z-index;
+}
+
+@mixin keyF($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @keyframes #{$animation-name} {
+    @content;
+  }
 }

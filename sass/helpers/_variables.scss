@@ -1,15 +1,23 @@
-// Colors
+// Background Colors
 $bg-components: rgb(11, 23, 57);
 $bg-primary: rgb(8, 16, 40);
-$primary-color : #555;
+$bg-hover-components: rgb(10, 19, 48);
+
+// Colors
+$primary-color: #555;
+$orange-color: #f59e0b;
+$black-color: #000;
+$green-color: #31ce36;
 $pink-color: rgb(203, 60, 255);
 $white-color: #fff;
 $gray-color: rgb(174, 185, 225);
-$bg-hover-components: rgb(10, 19, 48);
+$red-color: #f25961;
+$blue-color-alt: #48abf7;
+$blue-color: #1572e8;
+
+// Gradient
 $background-buttons: linear-gradient(
   128.49deg,
   rgb(203, 60, 255) 19.86%,
   rgb(127, 37, 251) 68.34%
 );
-$orange-color: #f59e0b;
-$black-color: #000;

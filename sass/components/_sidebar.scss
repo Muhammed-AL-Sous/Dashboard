@@ -12,6 +12,7 @@
   background-color: $bg-primary;
   flex-shrink: 0;
   box-shadow: rgba(1, 5, 17, 0.3) 0px 8px 28px 0px;
+  border-right: 1px solid $bg-components;
   @include transition(0.6s);
   &::-webkit-scrollbar {
     width: 5px;
@@ -192,6 +193,7 @@
 body[data-theme="light"] {
   .sidebar {
     background-color: $white-color;
+    border-right: none;
     &::-webkit-scrollbar-thumb {
       background-color: #bbb;
     }
