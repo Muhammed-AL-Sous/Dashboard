@@ -192,6 +192,7 @@
 
 body[data-theme="light"] {
   .sidebar {
+    box-shadow: 1px 0px 11px rgba(0, 0, 0, 0.15);
     background-color: $white-color;
     border-right: none;
     &::-webkit-scrollbar-thumb {
@@ -208,7 +209,6 @@ body[data-theme="light"] {
       }
       input[type="text"] {
         color: $primary-color;
-        color: $primary-color;
         background-color: #ddd;
         border-color: #bbb;
         &::placeholder {
@@ -222,12 +222,15 @@ body[data-theme="light"] {
           background-color: #ddd;
         }
         .sidebar-link {
-          color: $black-color;
+          color: #222;
           &.active {
             color: $pink-color;
           }
         }
       }
+    }
+    hr {
+      border-color: #ccc;
     }
     .page-links-second {
       li {
@@ -236,7 +239,7 @@ body[data-theme="light"] {
             background-color: #ddd;
           }
           a {
-            color: $black-color;
+            color: #222;
             &.active {
               color: $pink-color;
             }

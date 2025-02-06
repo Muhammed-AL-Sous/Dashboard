@@ -5,6 +5,7 @@
 @use "../helpers/mixins" as *;
 
 header {
+  background-color: $bg-primary;
   padding: 20px;
   @include flexbox("space-between", "center");
   .page-name {
@@ -337,24 +338,6 @@ header {
           font-weight: 500;
           font-size: 14px;
         }
-        &::before {
-          content: "Profile";
-          position: absolute;
-          background-color: #5a5a5c;
-          color: #fff;
-          width: fit-content;
-          top: -24px;
-          right: 10px;
-          padding: 5px 10px;
-          font-size: 14px;
-          font-family: "fangsong";
-          @include border-r(6px);
-          opacity: 0;
-          @include transition(0.6s);
-        }
-        &:hover::before {
-          opacity: 0.8;
-        }
       }
       .profile-menu-container {
         padding: 8px 0;
@@ -439,8 +422,174 @@ header {
 // ====================================================================== //
 
 // Header Design In Light Mode
-// body[data-theme="light"] {
-// }
+
+body[data-theme="light"] {
+  header {
+    background-color: $white-color;
+    box-shadow: 0 1px 11px rgba(0, 0, 0, 0.15);
+    .page-name {
+      color: $pink-color;
+      &::first-letter {
+        color: #00c2ff;
+      }
+    }
+    .noti-group {
+      .noti-btn {
+        background-color: $bg-light;
+        i {
+          color: $icon-color-light;
+        }
+      }
+      .noti-container {
+        background-color: $white-color;
+        box-shadow: 0 1px 11px rgba(0, 0, 0, 0.15);
+        h4 {
+          color: $header-color-light;
+        }
+        hr {
+          border-color: #ddd;
+        }
+        .noti-list {
+          &::-webkit-scrollbar-thumb {
+            background-color: #bbb;
+          }
+          li {
+            border-color: rgba(0, 0, 0, 0.12);
+            &:hover {
+              background-color: $bg-light;
+            }
+          }
+          .noti-content {
+            span:first-child {
+              color: $black-color;
+              font-weight: 600;
+            }
+            span:last-child {
+              color: $primary-color;
+            }
+          }
+        }
+      }
+      .message-btn {
+        color: $icon-color-light;
+        background-color: $bg-light;
+        &:hover {
+          background-color: $bg-light;
+        }
+      }
+      .msg-container {
+        background-color: $white-color;
+        .title-msg {
+          .message {
+            color: $header-color-light;
+          }
+          > a {
+            color: $blue-color;
+          }
+        }
+        hr {
+          border-color: #ccc;
+        }
+        .list-msg {
+          &::-webkit-scrollbar-thumb {
+            background-color: #bbb;
+          }
+          li {
+            border-color: rgba(0, 0, 0, 0.12);
+            &:hover {
+              background-color: $bg-light;
+            }
+            .info {
+              .name {
+                color: #333;
+              }
+              .contentMsg {
+                color: #444;
+              }
+              .time {
+                color: #555;
+                font-weight: 700;
+              }
+            }
+          }
+        }
+        .foot-msg {
+          > a {
+            color: #444;
+            > i {
+              float: right;
+              position: relative;
+              top: 1px;
+            }
+          }
+        }
+      }
+      .quick-action-btn {
+        color: $icon-color-light;
+        background-color: $bg-light;
+        &:hover {
+          background-color: $bg-light;
+        }
+      }
+      .quickAc-container {
+        box-shadow: 0 1px 11px rgba(0, 0, 0, 0.15);
+        background-color: $white-color;
+        .quick-action-list {
+          li {
+            .text {
+              color: $header-color-light;
+            }
+          }
+        }
+      }
+      .person {
+        .person-title {
+          span {
+            color: #333;
+            font-weight: 700;
+          }
+        }
+        .profile-menu-container {
+          box-shadow: 0 1px 11px rgba(0, 0, 0, 0.15);
+          background-color: $white-color;
+          .info-person {
+            .details {
+              .name {
+                color: $header-color-light;
+                font-weight: 700;
+              }
+              .email {
+                font-size: 11px;
+                color: #333;
+                font-weight: 600;
+              }
+            }
+          }
+          hr {
+            border-color: #ccc;
+          }
+          .profile-menu-list {
+            li {
+              &:hover {
+                background-color: $bg-light;
+              }
+              .profile-list-link {
+                > i {
+                  color: #333;
+                }
+                > span {
+                  color: #222;
+                  font-size: 14px;
+                  font-weight: 600;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 // ====================================================================== //
 
@@ -474,8 +623,8 @@ header {
 %details-container {
   position: absolute;
   background-color: $bg-components;
-  -webkit-box-shadow: rgba(1, 5, 17, 0.3) 0px 8px 28px 0px;
-  box-shadow: rgba(1, 5, 17, 0.3) 0px 8px 28px 0px;
+  -webkit-box-shadow: 0 1px 11px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 11px rgba(0, 0, 0, 0.15);
   top: 80px;
   padding: 8px 0;
   @include border-r(12px);

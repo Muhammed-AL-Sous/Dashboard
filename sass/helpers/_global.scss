@@ -25,9 +25,7 @@ body {
 .page {
   display: flex;
   .content {
-    background-color: $bg-primary;
     overflow: hidden;
-    padding: 10px;
     width: 100%;
   }
 }
