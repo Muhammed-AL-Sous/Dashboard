@@ -49,11 +49,17 @@ let notiBtn = document.querySelector(".noti-btn");
 let notiList = document.querySelector(".noti-container");
 let msgBtn = document.querySelector(".message-btn");
 let msgList = document.querySelector(".msg-container");
+let quickAcBtn = document.querySelector(".quick-action-btn");
+let quickAcList = document.querySelector(".quickAc-container");
+let profMenuBtn = document.querySelector(".person-title");
+let profMenuList = document.querySelector(".profile-menu-container");
 
 // Function Close All Opened List In Header Before Toggle Another List
 function closeAllLists() {
   notiList.classList.remove("show-noti");
   msgList.classList.remove("show-msg");
+  quickAcList.classList.remove("show-quickAc");
+  profMenuList.classList.remove("show-prof-menu");
 }
 
 // Function Toggle Button In Header
@@ -87,5 +93,13 @@ closeList("noti-btn", notiList, "show-noti");
 // Trigger Functions Messages
 toggleBtn(msgBtn, msgList, "show-msg");
 closeList("message-btn", msgList, "show-msg");
+
+// Trigger Functions Quick Action List
+toggleBtn(quickAcBtn, quickAcList, "show-quickAc");
+closeList("quick-action-btn", quickAcList, "show-quickAc");
+
+// Trigger Functions Profile List
+toggleBtn(profMenuBtn, profMenuList, "show-prof-menu");
+closeList("person-title", profMenuList, "show-prof-menu");
 
 // ===================================================================================== //

@@ -38,28 +38,28 @@ header
                 h4 Quick Actions
                 span.des Shortcuts
             ul.quick-action-list
-                +quick-list("fa-regular fa-calendar-days fa-fw" , "Calendar")
-                +quick-list("fa-regular fa-map fa-fw" , "Maps")
-                +quick-list("fa-regular fa-file-excel fa-fw" , "Reports")
-                +quick-list("fa-regular fa-envelope fa-fw" , "Emails")
-                +quick-list("fa-solid fa-file-invoice-dollar fa-fw" , "Invoice")
-                +quick-list("fa-regular fa-credit-card fa-fw" , "Payments")
+                +quick-list("fa-regular fa-calendar-days fa-fw calendar" , "Calendar")
+                +quick-list("fa-regular fa-map fa-fw map" , "Maps")
+                +quick-list("fa-regular fa-file-excel fa-fw excel" , "Reports")
+                +quick-list("fa-regular fa-envelope fa-fw envelope" , "Emails")
+                +quick-list("fa-solid fa-file-invoice-dollar fa-fw invoice" , "Invoice")
+                +quick-list("fa-regular fa-credit-card fa-fw credit" , "Payments")
         .person
             .person-title
                 img(src="./images/profile.jpg" , alt="profile")
                 span Mr.Muhammed
-        //- .profile-menu
-        //-     .info-person
-        //-         .image
-        //-             img(src="./images/profile.jpg" , alt="person")
-        //-         .details
-        //-             span.name Muhammed AL-Sous
-        //-             span.email Mhd.alsous.98@gmail.com
-        //-         hr
-        //-         ul.profile-menu-list
-        //-             +profile-list("profile" , "fa-solid fa-user" , "View Profile")
-        //-             +profile-list("settings" , "fa-solid fa-user-gear" , "Account Settings")
-        //-             +profile-list("#" , "fa-solid fa-bell" , "Notifications")
-        //-             +profile-list("#" , "fa-solid fa-people-arrows" , "Switch Account")
-        //-             +profile-list("help" , "fa-solid fa-circle-question" , "Help Center")
-        //-             +profile-list("#" , "fa-solid fa-arrow-right-from-bracket fa-rotate-180" , "Logout")
+            .profile-menu-container
+                .info-person
+                    .image
+                        img(src="./images/profile.jpg" , alt="person")
+                    .details
+                        span.name Muhammed AL-Sous
+                        span.email Mhd.alsous.98@gmail.com
+                hr
+                ul.profile-menu-list
+                    +profile-list("profile" , "fa-solid fa-user" , "View Profile")
+                    +profile-list("settings" , "fa-solid fa-user-gear" , "Account Settings")
+                    +profile-list("#" , "fa-solid fa-bell" , "Notifications")
+                    +profile-list("#" , "fa-solid fa-people-arrows" , "Switch Account")
+                    +profile-list("help" , "fa-solid fa-circle-question" , "Help Center")
+                    +profile-list("#" , "fa-solid fa-arrow-right-from-bracket fa-rotate-180" , "Logout")

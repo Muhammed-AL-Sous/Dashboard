@@ -77,14 +77,13 @@ header {
           border-width: 0px 0px thin;
           border-style: solid;
           border-color: rgba(255, 255, 255, 0.12);
-          padding: 10px 0;
+          padding: 8px 10px;
           @include transition(0.6s);
           &:hover {
             background-color: $bg-hover-components;
           }
           &:last-of-type {
             border-width: 0px;
-            padding-bottom: 0;
           }
           .icon {
             width: 40px;
@@ -145,7 +144,7 @@ header {
       }
       .title-msg {
         @include flexbox("space-between", "center");
-        padding: 5px 0 10px;
+        padding: 6px 12px;
         .message {
           font-size: 15px;
           font-family: "Work Sans", serif;
@@ -161,7 +160,7 @@ header {
       }
       hr {
         @extend %hr-horizontal;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         margin-top: 10px;
       }
       .list-msg {
@@ -171,7 +170,7 @@ header {
         @extend %scrollBar-header-buttons;
         li {
           @include flexbox($ai: "center", $gap: "15px");
-          padding: 10px 0;
+          padding: 8px 16px;
           cursor: pointer;
           @include transition(0.6s);
           &:hover {
@@ -182,7 +181,6 @@ header {
           border-color: rgba(255, 255, 255, 0.12);
           &:last-of-type {
             border-width: 0px;
-            padding-bottom: 0;
           }
           .image {
             img {
@@ -215,7 +213,8 @@ header {
         }
       }
       .foot-msg {
-        padding: 0 10px;
+        padding: 6px 12px;
+        margin-top: 5px;
         > a {
           font-family: "Work Sans", serif;
           font-size: 14px;
@@ -225,6 +224,8 @@ header {
           width: 100%;
           > i {
             float: right;
+            position: relative;
+            top: 1px;
           }
         }
       }
@@ -233,7 +234,16 @@ header {
       @extend %button-hover;
       position: relative;
     }
+
     .quickAc-container {
+      @include transition(0.9s);
+      transform-origin: top right;
+      display: none;
+      &.show-quickAc {
+        display: block;
+        animation: showDetails 0.9s;
+        -webkit-animation: showDetails 0.9s;
+      }
       top: 80px;
       right: 190px;
       position: absolute;
@@ -244,23 +254,69 @@ header {
       .quick-title {
         background: $background-buttons;
         color: $white-color;
+        text-align: center;
+        padding: 15px;
+        @include border-r(12px 12px 0 0);
         > h4 {
+          font-family: "Work Sans", serif;
+          font-size: 18px;
         }
         > .des {
+          font-size: 14px;
+          font-weight: 600;
+          color: #d5d5d5;
+          font-family: "Work Sans", serif;
         }
       }
 
       .quick-action-list {
-        max-width: 320px;
+        max-width: 350px;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+        gap: 20px;
+        padding: 15px;
+        text-align: center;
         li {
+          cursor: pointer;
           .quick-icon {
+            transform-origin: center;
+            // لضمان عدم انزياح العنصر عند العودة لوضعه الطبيعي
+            will-change: transform;
+            width: 40px;
+            height: 40px;
+            @include border-r(50%);
+            @include flexbox("center", "center");
+            @include transition(0.6s);
+            margin: 0 auto 5px;
+            &:hover {
+              @include transform(scale(1.1));
+            }
+            &:has(.calendar) {
+              background-color: $red-color;
+            }
+            &:has(.map) {
+              background-color: $yellow-color;
+            }
+            &:has(.excel) {
+              background-color: $blue-color-alt;
+            }
+            &:has(.envelope) {
+              background-color: $green-color;
+            }
+            &:has(.invoice) {
+              background-color: $blue-color;
+            }
+            &:has(.credit) {
+              background-color: $purple-color;
+            }
             i {
+              color: $white-color;
             }
           }
           .text {
+            color: $gray-color;
+            font-size: 13px;
+            font-weight: 600;
           }
         }
       }
@@ -287,7 +343,8 @@ header {
           background-color: #5a5a5c;
           color: #fff;
           width: fit-content;
-          bottom: -31px;
+          top: -24px;
+          right: 10px;
           padding: 5px 10px;
           font-size: 14px;
           font-family: "fangsong";
@@ -299,8 +356,90 @@ header {
           opacity: 0.8;
         }
       }
+      .profile-menu-container {
+        padding: 8px 0;
+        max-width: 250px;
+        @include transition(0.9s);
+        transform-origin: top right;
+        display: none;
+        &.show-prof-menu {
+          display: block;
+          animation: showDetails 0.9s;
+          -webkit-animation: showDetails 0.9s;
+        }
+        top: 80px;
+        right: 70px;
+        position: absolute;
+        background-color: $bg-components;
+        -webkit-box-shadow: rgba(1, 5, 17, 0.3) 0px 8px 28px 0px;
+        box-shadow: rgba(1, 5, 17, 0.3) 0px 8px 28px 0px;
+        @include border-r(12px);
+
+        .info-person {
+          @include flexbox($ai: "center", $gap: "10px");
+          margin: 5px 0;
+          padding: 6px 16px;
+          .image {
+            img {
+              width: 40px;
+              height: 40px;
+              @include border-r(50%);
+              object-fit: cover;
+            }
+          }
+          .details {
+            .name {
+              display: block;
+              font-size: 14px;
+              color: $white-color;
+              font-weight: 600;
+            }
+            .email {
+              font-size: 12px;
+              color: #d5d5d5;
+              font-weight: 400;
+            }
+          }
+        }
+        hr {
+          border-width: 0px 0px thin;
+          border-style: solid;
+          border-color: rgba(255, 255, 255, 0.12);
+          background-color: rgb(52, 59, 79);
+          margin-bottom: 10px;
+        }
+        .profile-menu-list {
+          line-height: 1.3;
+          li {
+            @include transition(0.6s);
+            padding: 8px 16px;
+            &:hover {
+              background-color: $bg-hover-components;
+            }
+            .profile-list-link {
+              display: block;
+              width: 100%;
+              > i {
+                margin-right: 15px;
+                color: $gray-color;
+              }
+              > span {
+                color: $gray-color;
+                font-size: 14px;
+                font-weight: 500;
+              }
+            }
+          }
+        }
+      }
     }
   }
+}
+
+// ====================================================================== //
+
+// Header Design In Light Mode
+body[data-theme="light"] {
 }
 
 // ====================================================================== //
@@ -338,7 +477,7 @@ header {
   -webkit-box-shadow: rgba(1, 5, 17, 0.3) 0px 8px 28px 0px;
   box-shadow: rgba(1, 5, 17, 0.3) 0px 8px 28px 0px;
   top: 80px;
-  padding: 15px;
+  padding: 8px 0;
   @include border-r(12px);
   max-width: 300px;
 }
