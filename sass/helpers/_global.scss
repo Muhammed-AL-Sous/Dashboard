@@ -23,9 +23,13 @@ body {
 }
 
 .page {
-  display: flex;
+  @include flexbox("flex-end");
+  min-height: 100vh;
   .content {
     overflow: hidden;
-    width: 100%;
+    width: calc(100% - 280px);
+    @media #{$max-small} {
+      width: 100%;
+    }
   }
 }

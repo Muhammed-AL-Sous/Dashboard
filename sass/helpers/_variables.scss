@@ -27,3 +27,7 @@ $background-buttons: linear-gradient(
   rgb(203, 60, 255) 19.86%,
   rgb(127, 37, 251) 68.34%
 );
+
+// Media Query
+$max-mobile: "(max-width:767px)";
+$max-small: "(max-width:991px)";
