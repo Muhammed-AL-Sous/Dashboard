@@ -13,7 +13,11 @@
   top: 0;
   left: 0;
   @media #{$max-small} {
+    z-index: 999;
     left: -280px;
+  }
+  &.show-sidebar {
+    left: 0;
   }
   background-color: $bg-primary;
   flex-shrink: 0;
@@ -34,7 +38,6 @@
   &:hover::-webkit-scrollbar-thumb {
     visibility: visible;
   }
-
   .brand {
     @include flexbox("", "center", "", "", "10px");
     img {
@@ -305,3 +308,5 @@ body[data-theme="light"] {
   }
 }
 // End Placeholder
+
+// =============================================================================== //

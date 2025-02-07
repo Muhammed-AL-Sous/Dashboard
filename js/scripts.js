@@ -1,9 +1,3 @@
-// Select Elements
-
-let themeCheckBox = document.querySelector(".sidebar-check .toggle-checkbox");
-
-// ===================================================================================== //
-
 // Switch Dark And Light Mode
 
 /*
@@ -12,6 +6,9 @@ appearance of the system,
 update a specific Attribute on the body element 
 and store the setting in localStorage
 */
+
+// Select Elements
+let themeCheckBox = document.querySelector(".sidebar-check .toggle-checkbox");
 
 window.addEventListener("load", () => {
   if (window.localStorage.theme) {
@@ -67,11 +64,10 @@ function toggleBtn(btn, list, className) {
   btn.addEventListener("click", (e) => {
     e.stopPropagation();
 
-    // إذا كانت القائمة مفتوحة بالفعل، أغلقها فقط
     if (list.classList.contains(className)) {
       list.classList.remove(className);
     } else {
-      closeAllLists(); // إغلاق جميع القوائم قبل فتح القائمة الجديدة
+      closeAllLists();
       list.classList.add(className);
     }
   });
@@ -101,5 +97,16 @@ closeList("quick-action-btn", quickAcList, "show-quickAc");
 // Trigger Functions Profile List
 toggleBtn(profMenuBtn, profMenuList, "show-prof-menu");
 closeList("person-title", profMenuList, "show-prof-menu");
+
+// ===================================================================================== //
+
+// Toggler Sibebar (Open - Close)
+
+let sidebar = document.querySelector(".sidebar");
+let toggleSibebarBtn = document.querySelector(".toggler-sidebar");
+
+toggleSibebarBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("show-sidebar");
+});
 
 // ===================================================================================== //

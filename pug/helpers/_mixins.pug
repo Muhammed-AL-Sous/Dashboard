@@ -4,6 +4,7 @@ mixin sidebarItems(link , icon , text)
             i(class="fa-fw " + icon)
             span #{text}
 
+
 mixin switchToggle(check)
     label.switch
         if check
@@ -33,6 +34,7 @@ mixin messages(image , name , content , time)
             .name #{name}
             .contentMsg #{content}
             .time #{time}
+
 
 mixin quick-list(ICON , TEXT)
     li
