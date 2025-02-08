@@ -9,4 +9,26 @@ html(lang="en")
             include ../components/_sidebar.pug
             .content
                 include ../components/_header.pug
+                hr.after-header
+                .dash-title-box
+                    .box-time
+                        .clock
+                            i.fa-regular.fa-clock.fa-fw
+                            span.des Time :
+                            span.hours
+                            span.minutes
+                            span.seconds
+                        .date
+                            i.fa-regular.fa-calendar-days.fa-fw
+                            span.des Date :
+                            span.tod-text
+                            span.today
+                            span.month
+                            span.year
+                    .box-manage
+                        button.manage Manage
+                        button.add-customer Add Customer
+
+
+
         include ../includes/_scripts.pug

@@ -29,7 +29,7 @@
   }
   &::-webkit-scrollbar-thumb {
     @include border-r(10px);
-    background-color: rgb(11, 23, 57);
+    background-color: $bg-components;
     visibility: hidden;
   }
   &::-webkit-scrollbar-track {

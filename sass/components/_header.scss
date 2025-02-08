@@ -720,7 +720,7 @@ body[data-theme="light"] {
     width: 5px;
   }
   &::-webkit-scrollbar-thumb {
-    background-color: $bg-hover-components;
+    background-color: $bg-primary;
     @include border-r(12px);
     display: none;
   }

@@ -12,3 +12,87 @@
 
 // Import SideBar File
 @use "../components/sidebar";
+
+// ========================================================================= //
+
+// Start Dashboard Content
+
+.dash-title-box {
+  background-color: $bg-primary;
+  @include flexbox("space-between", "center");
+  padding: 20px;
+  .box-time {
+    color: $white-color;
+    margin-left: 10px;
+    .clock {
+      text-shadow: 0 0 20px rgba(10, 175, 230, 1),
+        0 0 20px rgba(10, 175, 230, 0);
+      font-size: 20px;
+      font-weight: 600;
+      position: relative;
+      .time-icon {
+        background-color: $bg-hover-components;
+        display: inline-block;
+        padding: 5px;
+        @include border-r(4px);
+        border: 1px solid $gray-color;
+      }
+      .hours,
+      .minutes,
+      .seconds,
+      .period {
+        background-color: $bg-hover-components;
+        display: inline-block;
+        padding: 5px;
+        width: 40px;
+        text-align: center;
+        @include border-r(4px);
+        border: 1px solid $gray-color;
+      }
+      .seconds {
+        margin-right: 5px;
+      }
+      .period {
+        font-size: 12px;
+        position: absolute;
+        top: -10px;
+      }
+    }
+    .date {
+      border: 1px solid $gray-color;
+      font-weight: 500;
+      @include border-r(4px);
+      text-shadow: 0 0 20px rgba(10, 175, 230, 1),
+        0 0 20px rgba(10, 175, 230, 0);
+      margin-top: 15px;
+      background-color: $bg-hover-components;
+      padding: 10px;
+      letter-spacing: 0.05em;
+      .date-icon {
+        display: inline-block;
+      }
+    }
+  }
+  .box-manage {
+    padding: 20px;
+    .manage,
+    .add-customer {
+      display: inline-block;
+      color: $white-color;
+      background-color: $blue-color;
+      border: none;
+      padding: 10px 20px;
+      @include border-r(50px);
+      cursor: pointer;
+      font-weight: 700;
+      margin: 0 3px;
+    }
+    .add-customer {
+      background-image: $background-buttons;
+    }
+  }
+}
+
+// End Dashboard Content
+
+// ========================================================================= //

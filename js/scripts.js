@@ -41,7 +41,7 @@ themeCheckBox.addEventListener("change", (e) => {
 
 // ===================================================================================== //
 
-// Show - Hide Notifications & Messages & Profile Details
+// Show - Hide Notifications & Messages & Profile & Sidebar Details
 let notiBtn = document.querySelector(".noti-btn");
 let notiList = document.querySelector(".noti-container");
 let msgBtn = document.querySelector(".message-btn");
@@ -50,6 +50,8 @@ let quickAcBtn = document.querySelector(".quick-action-btn");
 let quickAcList = document.querySelector(".quickAc-container");
 let profMenuBtn = document.querySelector(".person-title");
 let profMenuList = document.querySelector(".profile-menu-container");
+let sidebar = document.querySelector(".sidebar");
+let toggleSibebarBtn = document.querySelector(".toggler-sidebar");
 
 // Function Close All Opened List In Header Before Toggle Another List
 function closeAllLists() {
@@ -57,6 +59,7 @@ function closeAllLists() {
   msgList.classList.remove("show-msg");
   quickAcList.classList.remove("show-quickAc");
   profMenuList.classList.remove("show-prof-menu");
+  sidebar.classList.remove("show-sidebar");
 }
 
 // Function Toggle Button In Header
@@ -98,15 +101,9 @@ closeList("quick-action-btn", quickAcList, "show-quickAc");
 toggleBtn(profMenuBtn, profMenuList, "show-prof-menu");
 closeList("person-title", profMenuList, "show-prof-menu");
 
-// ===================================================================================== //
-
-// Toggler Sibebar (Open - Close)
-
-let sidebar = document.querySelector(".sidebar");
-let toggleSibebarBtn = document.querySelector(".toggler-sidebar");
-
-toggleSibebarBtn.addEventListener("click", () => {
-  sidebar.classList.toggle("show-sidebar");
-});
+// Trigger Functions Sibebar List
+toggleBtn(toggleSibebarBtn, sidebar, "show-sidebar");
+closeList("toggler-sidebar", sidebar, "show-sidebar");
 
 // ===================================================================================== //
+
