@@ -60,3 +60,37 @@ window.addEventListener("load", () => {
   showDateTime(); // تشغيلها فورًا حتى لا يكون هناك تأخير
   setInterval(showDateTime, 1000);
 });
+
+// ============================================================================== //
+
+// Function Strat Counter From Zero To Target
+let isCounting = false;
+
+function startCounter(numbersCount) {
+  if (isCounting) return; // If counting is in progress, do nothing
+
+  isCounting = true; // Start counting
+  numbersCount.forEach((n) => {
+    let startCount = 0;
+    let endCount = parseInt(n.dataset.number); // Get the target count from data-number
+
+    let counter = setInterval(() => {
+      if (startCount < endCount) {
+        startCount += Math.ceil((endCount - startCount) / 10); // Adjust the speed of counting
+        n.textContent = startCount.toLocaleString();
+      } else {
+        n.textContent = endCount.toLocaleString();
+        clearInterval(counter); // Stop counting once reached the target
+      }
+    }, 50); // Adjust the interval for smoother animation
+  });
+}
+
+let numberStats = document.querySelectorAll(".dash-stats-box .info .number");
+let arrayOfNumbersStats = Array.from(numberStats);
+
+window.addEventListener("load", () => {
+  startCounter(arrayOfNumbersStats);
+});
+
+// ============================================================================== //

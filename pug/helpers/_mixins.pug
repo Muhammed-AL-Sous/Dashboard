@@ -48,3 +48,12 @@ mixin profile-list(link , icon , text)
         a.profile-list-link(href=link + ".html")
             i(class="fa-fw " + icon)
             span #{text}
+
+
+mixin statisBox(icon , title , number)
+    .stats-box
+        .icon
+            i(class=icon + " fa-fw")
+        .info
+            span.title #{title}
+            span(class="number" data-number=number) 0
