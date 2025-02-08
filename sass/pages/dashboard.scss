@@ -15,21 +15,26 @@
 
 // ========================================================================= //
 
-// Start Dashboard Content
+// Start dash-title-box
 
 .dash-title-box {
   background-color: $bg-primary;
   @include flexbox("space-between", "center");
+  @media #{$max-mobile} {
+    @include flexbox($jc: "center", $dir: "column");
+  }
   padding: 20px;
   .box-time {
     color: $white-color;
-    margin-left: 10px;
     .clock {
-      text-shadow: 0 0 20px rgba(10, 175, 230, 1),
+      text-shadow: 0 0 20px rgba(10, 175, 230, 0.6),
         0 0 20px rgba(10, 175, 230, 0);
       font-size: 20px;
       font-weight: 600;
       position: relative;
+      @media #{$max-mobile} {
+        font-size: 15px;
+      }
       .time-icon {
         background-color: $bg-hover-components;
         display: inline-block;
@@ -48,21 +53,28 @@
         text-align: center;
         @include border-r(4px);
         border: 1px solid $gray-color;
+        @media #{$max-mobile} {
+          width: 35px;
+        }
       }
       .seconds {
-        margin-right: 5px;
+        margin-right: 4px;
       }
       .period {
         font-size: 12px;
         position: absolute;
         top: -10px;
+        @media #{$max-mobile} {
+          font-size: 8px;
+          width: 25px;
+        }
       }
     }
     .date {
       border: 1px solid $gray-color;
       font-weight: 500;
       @include border-r(4px);
-      text-shadow: 0 0 20px rgba(10, 175, 230, 1),
+      text-shadow: 0 0 20px rgba(10, 175, 230, 0.6),
         0 0 20px rgba(10, 175, 230, 0);
       margin-top: 15px;
       background-color: $bg-hover-components;
@@ -71,12 +83,16 @@
       .date-icon {
         display: inline-block;
       }
+      @media #{$max-mobile} {
+        font-size: 13px;
+      }
     }
   }
   .box-manage {
     padding: 20px;
     .manage,
     .add-customer {
+      font-size: 17px;
       display: inline-block;
       color: $white-color;
       background-color: $blue-color;
@@ -84,8 +100,11 @@
       padding: 10px 20px;
       @include border-r(50px);
       cursor: pointer;
-      font-weight: 700;
+      font-weight: 600;
       margin: 0 3px;
+      @media #{$max-mobile} {
+        font-size: 12px;
+      }
     }
     .add-customer {
       background-image: $background-buttons;
@@ -93,6 +112,61 @@
   }
 }
 
-// End Dashboard Content
+body[data-theme="light"] {
+  .dash-title-box {
+    color: #333;
+    background-color: $bg-light;
+    .box-time {
+      color: $white-color;
+      .clock {
+        text-shadow: none;
+        .time-icon {
+          background-color: $blue-color-alt;
+          color: $white-color;
+          border: 1px solid $blue-color-alt;
+          font-weight: 600;
+          box-shadow: 0 2px 4px rgba(0, 0, 20, 0.08),
+            0 1px 2px rgba(0, 0, 20, 0.08);
+        }
+        .hours,
+        .minutes,
+        .seconds,
+        .period {
+          background-color: $blue-color-alt;
+          border: 1px solid $blue-color-alt;
+          box-shadow: 0 2px 4px rgba(0, 0, 20, 0.08),
+            0 1px 2px rgba(0, 0, 20, 0.08);
+        }
+        .dot {
+          color: $icon-color-light;
+          font-weight: 800;
+        }
+      }
+      .date {
+        text-shadow: none;
+        border: 1px solid $blue-color-alt;
+        background-color: $blue-color-alt;
+        box-shadow: 0 2px 4px rgba(0, 0, 20, 0.08),
+          0 1px 2px rgba(0, 0, 20, 0.08);
+      }
+    }
+    .box-manage {
+      .manage,
+      .add-customer {
+        color: $blue-color-alt;
+        background-color: rgba(72, 171, 247, 0.1);
+        box-shadow: 0 2px 4px rgba(0, 0, 20, 0.08),
+          0 1px 2px rgba(0, 0, 20, 0.08);
+      }
+      .add-customer {
+        background-image: none;
+        color: $white-color;
+        background-color: $blue-color-alt;
+      }
+    }
+  }
+}
+
+// End dash-title-box
 
 // ========================================================================= //

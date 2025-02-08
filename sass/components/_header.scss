@@ -76,6 +76,7 @@ header {
       }
     }
     .noti-container {
+      z-index: 998;
       right: 302px;
       width: fit-content;
       min-width: 280px;
@@ -182,6 +183,7 @@ header {
       position: relative;
     }
     .msg-container {
+      z-index: 998;
       width: fit-content;
       min-width: 280px;
       max-width: 350px;
@@ -305,6 +307,7 @@ header {
       position: relative;
     }
     .quickAc-container {
+      z-index: 998;
       @include transition(0.3s ease-in-out);
       transform-origin: top right;
       position: absolute;
@@ -416,6 +419,7 @@ header {
       }
     }
     .profile-menu-container {
+      z-index: 998;
       padding: 8px 0;
       max-width: 250px;
       @include transition(0.3s ease-in-out);

@@ -27,11 +27,13 @@ function showDateTime() {
         <div class="box-time">
             <div class="clock">
               <div class="time-icon">
-               <i class="fa-regular fa-clock fa-fw"></i>
-               <span class="des">Time</span>
-              </div> :
-              <span class="hours">${hours}</span> :
-              <span class="minutes">${minutes}</span> :
+                  <i class="fa-regular fa-clock fa-fw"></i>
+                  <span class="des">Time</span>
+              </div><span class="dot"> : </span>
+              <span class="hours">${hours}</span>
+              <span class="dot"> : </span>
+              <span class="minutes">${minutes}</span>
+              <span class="dot"> : </span>
               <span class="seconds">${seconds}</span>
               <span class="period">${period}</span>
             </div>
