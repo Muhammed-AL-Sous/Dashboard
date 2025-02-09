@@ -121,3 +121,13 @@ exportBtn.addEventListener("click", () => {
 });
 
 // ============================================================================== //
+
+// Animation Chart
+let exportChartBtn = document.querySelector(".dash-user-statistics .export");
+let chart = document.querySelector(".dash-user-statistics .chart");
+
+exportChartBtn.addEventListener("click", () => {
+  chart.classList.toggle("active");
+});
+
+// ============================================================================== //
