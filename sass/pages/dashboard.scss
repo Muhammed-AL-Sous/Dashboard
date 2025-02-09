@@ -297,7 +297,6 @@ body[data-theme="light"] {
         }
       }
     }
-
     .web-vis-body {
       position: relative;
       min-height: 300px;
@@ -305,12 +304,12 @@ body[data-theme="light"] {
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 200px;
-        height: 200px;
+        width: 220px;
+        height: 220px;
         margin-top: -100px;
         margin-left: -100px;
         @include border-r(50%);
-        border-width: 6px;
+        border-width: 10px;
         border-style: solid;
         border-color: $pink-color;
         border-left-color: transparent;
@@ -324,13 +323,24 @@ body[data-theme="light"] {
           left: 0;
           right: 0;
           margin: auto;
-          border-width: 6px;
+          border-width: 10px;
           border-style: solid;
           @include border-r(50%);
           border-left-color: transparent;
           @include transform(rotate(-45deg));
-          animation: loader 1 5s linear alternate-reverse;
-          -webkit-animation: loader 1 5s linear alternate-reverse;
+          animation: loader 1 10s linear alternate-reverse;
+          -webkit-animation: loader 1 10s linear alternate-reverse;
+          @include transition(0.6s);
+        }
+        &.refresh {
+          &::before,
+          &::after {
+            content: "";
+            animation: none;
+            -webkit-animation: none;
+            animation: loader-refresh 1 5s linear alternate-reverse;
+            -webkit-animation: loader-refresh 1 5s linear alternate-reverse;
+          }
         }
         &::before {
           border-color: $blue-color;
@@ -341,13 +351,13 @@ body[data-theme="light"] {
         &::after {
           content: "";
           border-color: #00c2ff;
-          width: 140px;
-          height: 140px;
+          width: 125px;
+          height: 125px;
           mask-image: conic-gradient(rgb(11, 23, 57) 175deg, transparent 0);
         }
         p {
           position: absolute;
-          color: white;
+          color: $white-color;
           font-weight: 600;
           font-size: 35px;
           top: 50%;
@@ -356,7 +366,6 @@ body[data-theme="light"] {
         }
       }
     }
-
     .web-vis-foot {
       @include flexbox("space-between", "center");
       .bullets {
@@ -373,6 +382,9 @@ body[data-theme="light"] {
           &:last-child {
             color: #00c2ff;
             font-weight: 600;
+          }
+          > i {
+            margin-left: 10px;
           }
         }
       }
@@ -397,12 +409,94 @@ body[data-theme="light"] {
   }
 }
 
+body[data-theme="light"] {
+  .dash-website-visitors {
+    background-color: $bg-light;
+    .web-vis-container {
+      box-shadow: 2px 6px 15px 0 rgba(69, 65, 78, 0.1);
+      background-color: $white-color;
+      .web-vis-head {
+        .title {
+          color: purple;
+          font-weight: 700;
+        }
+        .export {
+          background: $background-buttons;
+          color: $white-color;
+          font-weight: 700;
+        }
+      }
+      .web-vis-body {
+        .load {
+          border-color: $green-color;
+          border-left-color: transparent;
+          &::before {
+            border-color: $orange-color;
+            mask-image: conic-gradient(white 225deg, transparent 0);
+          }
+          &::after {
+            border-color: $red-color;
+            mask-image: conic-gradient(white 175deg, transparent 0);
+          }
+          p {
+            color: $black-color;
+            font-weight: 700;
+          }
+        }
+      }
+      .web-vis-foot {
+        .bullets {
+          span {
+            &:first-child {
+              color: $green-color;
+              font-weight: 700;
+            }
+            &:nth-child(2) {
+              color: $orange-color;
+              font-weight: 700;
+            }
+            &:last-child {
+              color: $red-color;
+              font-weight: 700;
+            }
+          }
+        }
+        .percentage {
+          span {
+            &:first-child {
+              color: $green-color;
+              font-weight: 700;
+            }
+            &:nth-child(2) {
+              color: $orange-color;
+              font-weight: 700;
+            }
+            &:last-child {
+              color: $red-color;
+              font-weight: 700;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @include keyF(loader) {
   from {
     @include transform(rotate(-45deg));
   }
   to {
     @include transform(rotate(1turn));
+  }
+}
+
+@include keyF(loader-refresh) {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 

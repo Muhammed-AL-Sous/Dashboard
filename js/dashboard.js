@@ -94,3 +94,30 @@ window.addEventListener("load", () => {
 });
 
 // ============================================================================== //
+
+// Refresh Data Of Website Visitors
+
+let exportBtn = document.querySelector(".dash-website-visitors .export");
+let ContentWebVis = document.querySelector(".dash-website-visitors .load");
+let percentageNumber = document.querySelectorAll(
+  ".dash-website-visitors .percentage > span"
+);
+let percentageNumberArray = Array.from(percentageNumber);
+
+exportBtn.addEventListener("click", () => {
+  ContentWebVis.classList.toggle("refresh");
+  percentageNumberArray.forEach((num) => {
+    num.textContent = "0%"; // ابدأ من 0%
+    let counter = setInterval(() => {
+      let currentValue = parseInt(num.textContent); // القيمة الحالية
+      let targetValue = parseInt(num.dataset.number); // القيمة المستهدفة من data-number
+      if (currentValue < targetValue) {
+        num.textContent = currentValue + 1 + "%"; // زيادة القيمة تدريجياً
+      } else {
+        clearInterval(counter); // التوقف عند الوصول إلى القيمة المستهدفة
+      }
+    }, 3500 / num.dataset.number); // تحديد السرعة بناءً على الرقم المستهدف
+  });
+});
+
+// ============================================================================== //

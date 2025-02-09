@@ -45,12 +45,16 @@ html(lang="en")
                         .web-vis-foot
                             .bullets
                                 span Organic
+                                    i.fa-solid.fa-arrow-trend-up.fa-fw
                                 span Social
+                                    i.fa-solid.fa-shuffle.fa-fw
                                 span Direct
+                                    i.fa-solid.fa-arrow-trend-down.fa-fw
                             .percentage
-                                span 80%
-                                span 60%
-                                span 40%
+                                span(data-number="80") 80%
+                                span(data-number="60") 60%
+                                span(data-number="40") 40%
+
 
 
         include ../includes/_scripts.pug
