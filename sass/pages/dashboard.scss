@@ -174,8 +174,8 @@ body[data-theme="light"] {
 // Start Dash-Stats-Box
 
 .dash-stats-box {
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 15px;
+  padding-bottom: 20px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   background-color: $bg-primary;
@@ -230,4 +230,180 @@ body[data-theme="light"] {
   }
 }
 
+body[data-theme="light"] {
+  .dash-stats-box {
+    background-color: $bg-light;
+    .stats-box {
+      background-color: $white-color;
+      box-shadow: 2px 6px 15px 0 rgba(69, 65, 78, 0.1);
+      .icon {
+        &:has(.suitcase) {
+          background-color: $green-color;
+        }
+      }
+      .info {
+        .title {
+          color: $icon-color-light;
+          font-weight: 500;
+        }
+        .number {
+          color: #333;
+        }
+      }
+    }
+  }
+}
+
 // End Dash-Stats-Box
+
+// ========================================================================= //
+
+// Start Dash Website Visitors
+
+.dash-website-visitors {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: $bg-primary;
+  .web-vis-container {
+    padding: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: $bg-components;
+    @include border-r(12px);
+    .web-vis-head {
+      @include flexbox("space-between", "center");
+      .title {
+        color: $white-color;
+        font-size: 20px;
+        font-weight: 500;
+      }
+      .export {
+        border: none;
+        background-color: $bg-primary;
+        color: $white-color;
+        padding: 10px 20px;
+        font-size: 15px;
+        font-weight: 500;
+        @include border-r(6px);
+        cursor: pointer;
+        overflow: hidden;
+        > i {
+          margin-left: 5px;
+          @include transform(translateY(30px));
+          @include transition(0.6s ease-out);
+        }
+        &:hover > i {
+          @include transform(translateY(0));
+        }
+      }
+    }
+
+    .web-vis-body {
+      position: relative;
+      min-height: 300px;
+      .load {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 200px;
+        height: 200px;
+        margin-top: -100px;
+        margin-left: -100px;
+        @include border-r(50%);
+        border-width: 6px;
+        border-style: solid;
+        border-color: $pink-color;
+        border-left-color: transparent;
+        @include transform(rotate(-20deg));
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+          border-width: 6px;
+          border-style: solid;
+          @include border-r(50%);
+          border-left-color: transparent;
+          @include transform(rotate(-45deg));
+          animation: loader 1 5s linear alternate-reverse;
+          -webkit-animation: loader 1 5s linear alternate-reverse;
+        }
+        &::before {
+          border-color: $blue-color;
+          width: 165px;
+          height: 165px;
+          mask-image: conic-gradient(rgb(11, 23, 57) 225deg, transparent 0);
+        }
+        &::after {
+          content: "";
+          border-color: #00c2ff;
+          width: 140px;
+          height: 140px;
+          mask-image: conic-gradient(rgb(11, 23, 57) 175deg, transparent 0);
+        }
+        p {
+          position: absolute;
+          color: white;
+          font-weight: 600;
+          font-size: 35px;
+          top: 50%;
+          left: 50%;
+          @include transform(translate(-50%, -50%) rotate(20deg));
+        }
+      }
+    }
+
+    .web-vis-foot {
+      @include flexbox("space-between", "center");
+      .bullets {
+        @include flexbox($dir: "column", $gap: "10px");
+        span {
+          &:first-child {
+            color: $pink-color;
+            font-weight: 600;
+          }
+          &:nth-child(2) {
+            color: $blue-color;
+            font-weight: 600;
+          }
+          &:last-child {
+            color: #00c2ff;
+            font-weight: 600;
+          }
+        }
+      }
+      .percentage {
+        @include flexbox($dir: "column", $gap: "10px");
+        span {
+          &:first-child {
+            color: $pink-color;
+            font-weight: 600;
+          }
+          &:nth-child(2) {
+            color: $blue-color;
+            font-weight: 600;
+          }
+          &:last-child {
+            color: #00c2ff;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include keyF(loader) {
+  from {
+    @include transform(rotate(-45deg));
+  }
+  to {
+    @include transform(rotate(1turn));
+  }
+}
+
+// End Dash Website Visitors
