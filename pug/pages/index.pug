@@ -33,28 +33,47 @@ html(lang="en")
                 .dash-stats-box
                     each stat in [["fa-solid fa-users users","Visitors","1147"],["fa-solid fa-user-check subscribe" , "Subscribers" , "1530"],["fa-solid fa-cart-flatbed-suitcase suitcase" , "Sales" , "1280"],["fa-solid fa-circle-check check","Order","1037"]]
                         +statisBox(stat[0] , stat[1] , stat[2])
-                .dash-website-visitors
-                    .web-vis-container
-                        .web-vis-head
-                            h4.title Website Visitors
-                            button.export Export
-                                i.fa-solid.fa-arrow-down-long.fa-fw
-                        .web-vis-body
-                            .load
-                                p 150k
-                        .web-vis-foot
-                            .bullets
-                                span Organic
-                                    i.fa-solid.fa-arrow-trend-up.fa-fw
-                                span Social
-                                    i.fa-solid.fa-shuffle.fa-fw
-                                span Direct
-                                    i.fa-solid.fa-arrow-trend-down.fa-fw
-                            .percentage
-                                span(data-number="80") 80%
-                                span(data-number="60") 60%
-                                span(data-number="40") 40%
-
-
+                .dash-container-statistics
+                    .dash-website-visitors
+                        .web-vis-container
+                            .web-vis-head
+                                h4.title Website Visitors
+                                button.export Export
+                                    i.fa-solid.fa-arrow-down-long.fa-fw
+                            .web-vis-body
+                                .load
+                                    p 150k
+                            .web-vis-foot
+                                .bullets
+                                    span Organic
+                                        i.fa-solid.fa-arrow-trend-up.fa-fw
+                                    span Social
+                                        i.fa-solid.fa-shuffle.fa-fw
+                                    span Direct
+                                        i.fa-solid.fa-arrow-trend-down.fa-fw
+                                .percentage
+                                    span(data-number="80") 80%
+                                    span(data-number="60") 60%
+                                    span(data-number="40") 40%
+                    .dash-user-statistics
+                        .user-stat-container
+                            .user-stat-head
+                                h4.title User Statistics
+                                .buttons
+                                    button.export Export
+                                        i.fa-solid.fa-arrow-down-long.fa-fw
+                                    button.print Print
+                                        i.fa-solid.fa-print.fa-fw
+                            .user-stat-body
+                                .chart
+                            .user-stat-foot
+                                .left-description
+                                    span Subscribers
+                                    span New Visitors
+                                    span Active Users
+                                .right-description
+                                    span Orders Count
+                                    span Inactive Users
+                                    span Sales Amount
 
         include ../includes/_scripts.pug

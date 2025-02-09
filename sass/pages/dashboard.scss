@@ -258,6 +258,17 @@ body[data-theme="light"] {
 
 // ========================================================================= //
 
+// Start Dash Container Statistics
+
+.dash-container-statistics {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+}
+
+// End Dash Container Statistics
+
+// ========================================================================= //
+
 // Start Dash Website Visitors
 
 .dash-website-visitors {
@@ -270,6 +281,7 @@ body[data-theme="light"] {
     margin-right: 20px;
     background-color: $bg-components;
     @include border-r(12px);
+    box-shadow: rgba(1, 5, 17, 0.3) 0px 8px 28px 0px;
     .web-vis-head {
       @include flexbox("space-between", "center");
       .title {
@@ -289,11 +301,11 @@ body[data-theme="light"] {
         overflow: hidden;
         > i {
           margin-left: 5px;
-          @include transform(translateY(30px));
           @include transition(0.6s ease-out);
         }
         &:hover > i {
-          @include transform(translateY(0));
+          animation: up-down 1s infinite linear;
+          -webkit-animation: up-down 1s infinite linear;
         }
       }
     }
@@ -306,8 +318,8 @@ body[data-theme="light"] {
         left: 50%;
         width: 220px;
         height: 220px;
-        margin-top: -100px;
-        margin-left: -100px;
+        margin-top: -110px;
+        margin-left: -110px;
         @include border-r(50%);
         border-width: 10px;
         border-style: solid;
@@ -482,6 +494,16 @@ body[data-theme="light"] {
   }
 }
 
+@include keyF(up-down) {
+  0%,
+  100% {
+    @include transform(translateY(-1px));
+  }
+  50% {
+    @include transform(translateY(5px));
+  }
+}
+
 @include keyF(loader) {
   from {
     @include transform(rotate(-45deg));
@@ -501,3 +523,159 @@ body[data-theme="light"] {
 }
 
 // End Dash Website Visitors
+
+// ========================================================================= //
+
+// Start Dash User Statistics
+
+.dash-user-statistics {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: $bg-primary;
+  .user-stat-container {
+    padding: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: $bg-components;
+    @include border-r(12px);
+    box-shadow: rgba(1, 5, 17, 0.3) 0px 8px 28px 0px;
+    .user-stat-head {
+      @include flexbox("space-between", "center");
+      .title {
+        color: $white-color;
+        font-size: 20px;
+        font-weight: 500;
+      }
+      .buttons {
+        .export,
+        .print {
+          border: none;
+          background-color: $bg-primary;
+          color: $white-color;
+          padding: 7px 10px;
+          padding: 10px 20px;
+          font-size: 15px;
+          font-weight: 500;
+          @include border-r(6px);
+          cursor: pointer;
+          > i {
+            margin-left: 5px;
+          }
+        }
+        .export {
+          overflow: hidden;
+          > i {
+            @include transition(0.6s ease-out);
+          }
+          &:hover > i {
+            animation: up-down 1s infinite linear;
+            -webkit-animation: up-down 1s infinite linear;
+          }
+        }
+      }
+    }
+
+    .user-stat-body {
+      position: relative;
+      min-height: 300px;
+      .chart {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 220px;
+        height: 220px;
+        margin-top: -110px;
+        margin-left: -110px;
+        background: conic-gradient(
+          #1572e8 8%,
+          #31ce36 0 17%,
+          #00c2ff 0 25%,
+          #f59e0b 0 33%,
+          #4d4d4d 0 41%,
+          rgb(203, 60, 255) 0 49%
+        );
+        @include border-r(50%);
+      }
+    }
+
+    .user-stat-foot {
+      @include flexbox("space-between", "center");
+      .left-description {
+        @include flexbox($dir: "column", $gap: "10px");
+        span {
+          position: relative;
+          font-weight: 600;
+          padding-left: 20px;
+          &:first-child {
+            color: $pink-color;
+            &::before {
+              background-color: $pink-color;
+            }
+          }
+          &:nth-child(2) {
+            color: $blue-color;
+            &::before {
+              background-color: $blue-color;
+            }
+          }
+          &:last-child {
+            color: $green-color;
+            &::before {
+              background-color: $green-color;
+            }
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            top: 50%;
+            left: 0;
+            @include transform(translate(-50%, -50%));
+            @include border-r(50%);
+          }
+        }
+      }
+      .right-description {
+        @include flexbox($dir: "column", $gap: "10px");
+        span {
+          position: relative;
+          font-weight: 600;
+          padding-left: 20px;
+          &:first-child {
+            color: #00c2ff;
+            &::before {
+              background-color: #00c2ff;
+            }
+          }
+          &:nth-child(2) {
+            color: $orange-color;
+            &::before {
+              background-color: $orange-color;
+            }
+          }
+          &:last-child {
+            color: #4d4d4d;
+            &::before {
+              background-color: #4d4d4d;
+            }
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            top: 50%;
+            left: 0;
+            @include transform(translate(-50%, -50%));
+            @include border-r(50%);
+          }
+        }
+      }
+    }
+  }
+}
+
+// End Dash User Statistics
+
+// ========================================================================= //
