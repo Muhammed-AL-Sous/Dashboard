@@ -131,3 +131,82 @@ exportChartBtn.addEventListener("click", () => {
 });
 
 // ============================================================================== //
+
+// Start Latest Tasks
+
+const tasks = Array.from(document.querySelectorAll(".task"));
+const progressSpan = document.getElementById("tasks-progress");
+const uncheckTaskBtns = Array.from(
+  document.querySelectorAll(".task .uncheck-btn")
+);
+const checkTaskBtns = Array.from(document.querySelectorAll(".task .check-btn"));
+const deleteTaskBtns = Array.from(
+  document.querySelectorAll(".task .delete-btn")
+);
+
+function taskIcons() {
+  tasks.map((task) => {
+    if (task.classList.contains("done")) {
+      task.children[1].style.display = "inline-block";
+      task.children[2].style.display = "none";
+    } else {
+      task.children[1].style.display = "none";
+      task.children[2].style.display = "inline-block";
+    }
+  });
+}
+
+function updateDoneTasksNumber() {
+  progressSpan.innerHTML = `${
+    Array.from(document.querySelectorAll(".task.done")).length
+  }/${Array.from(document.querySelectorAll(".task")).length} Completed`;
+
+  if (
+    Array.from(document.querySelectorAll(".task.done")).length ===
+    Array.from(document.querySelectorAll(".task")).length
+  ) {
+    progressSpan.classList.add("good");
+  } else {
+    if (progressSpan.classList.contains("good"))
+      progressSpan.classList.remove("good");
+  }
+}
+
+taskIcons();
+updateDoneTasksNumber();
+
+uncheckTaskBtns.map((uncheckBtn) => {
+  uncheckBtn.addEventListener("click", () => {
+    uncheckBtn.parentElement.classList.remove("done");
+    taskIcons();
+    updateDoneTasksNumber();
+  });
+});
+
+checkTaskBtns.map((checkBtn) => {
+  checkBtn.addEventListener("click", () => {
+    checkBtn.parentElement.classList.add("done");
+    taskIcons();
+    updateDoneTasksNumber();
+  });
+});
+
+deleteTaskBtns.map((deleteBtn) => {
+  deleteBtn.addEventListener("click", () => {
+    Swal.fire({
+      icon: "warning",
+      title: "Are you sure?",
+      text: "You won't be able to undo this!",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Deleted!", "Your task has been deleted.", "success");
+        deleteBtn.parentElement.remove();
+        updateDoneTasksNumber();
+      }
+    });
+  });
+});
+
+// End Latest Tasks

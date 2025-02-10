@@ -75,5 +75,35 @@ html(lang="en")
                                     span Orders Count
                                     span Inactive Users
                                     span Sales Amount
-
+                .dash-container-tasks-posts
+                    .dash-latest-tasks
+                        .lat-task-head
+                            .task-title
+                                h3 Latest Tasks
+                            .progress
+                                span#tasks-progress
+                        .lat-task-body
+                            each item in [["Record a new video", "Record python video and create an exe project", "false"], ["Write an article", "Write Low Level vs High Level Languages", "false"], ["Finish a project", "Publish academy programming project", "false"], ["Attend the meeting", "Attend the project business analysis meeting", "true"], ["Finish lesson", "Finish explaining flexbox", "false"]]
+                                +task(item[0], item[1], item[2])
+                    .dash-posts
+                        .dash-post-head
+                            .post-title
+                                h3 Latest Posts
+                            #bullets
+                        .post-heading#post-heading
+                            img(src="", alt="")
+                            div
+                                h6
+                                span
+                        q.post-body#post-body
+                        .post-footer
+                            div
+                                i.fa-solid.fa-heart
+                                span#post-likes
+                            #arrows
+                                i.fa-solid.fa-chevron-left#previous-post
+                                i.fa-solid.fa-chevron-right#next-post
+                            div
+                                i.fa-solid.fa-comments
+                                span#post-comments
         include ../includes/_scripts.pug

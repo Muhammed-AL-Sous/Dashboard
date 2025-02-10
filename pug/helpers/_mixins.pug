@@ -57,3 +57,13 @@ mixin statisBox(icon , title , number)
         .info
             span.title #{title}
             span(class="number" data-number=number) 0
+
+
+mixin task(heading, parag, done)
+    .task(class=done == "true" ? "done" : "")
+        div
+            h4 #{heading}
+            p #{parag}
+        i.fa-solid.fa-xmark.uncheck-btn
+        i.fa-solid.fa-check.check-btn
+        i.fa-regular.fa-trash-can.delete-btn

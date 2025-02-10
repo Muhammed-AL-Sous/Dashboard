@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Dashboard With Html , Css , JavaScript , Sass , Pugjs">
     <title>Dashboard</title>
+    <link rel="icon website" href="./images/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&amp;family=Work+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap">
@@ -252,6 +253,67 @@
                 <div class="left-description"><span>Subscribers</span><span>New Visitors</span><span>Active Users</span></div>
                 <div class="right-description"><span>Orders Count</span><span>Inactive Users</span><span>Sales Amount</span></div>
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="dash-container-tasks-posts">
+          <div class="dash-latest-tasks">
+            <div class="lat-task-head">
+              <div class="task-title">
+                <h3>Latest Tasks</h3>
+              </div>
+              <div class="progress"><span id="tasks-progress"></span></div>
+            </div>
+            <div class="lat-task-body">
+                    <div class="task">
+                      <div>
+                        <h4>Record a new video</h4>
+                        <p>Record python video and create an exe project</p>
+                      </div><i class="fa-solid fa-xmark uncheck-btn"></i><i class="fa-solid fa-check check-btn"></i><i class="fa-regular fa-trash-can delete-btn"></i>
+                    </div>
+                    <div class="task">
+                      <div>
+                        <h4>Write an article</h4>
+                        <p>Write Low Level vs High Level Languages</p>
+                      </div><i class="fa-solid fa-xmark uncheck-btn"></i><i class="fa-solid fa-check check-btn"></i><i class="fa-regular fa-trash-can delete-btn"></i>
+                    </div>
+                    <div class="task">
+                      <div>
+                        <h4>Finish a project</h4>
+                        <p>Publish academy programming project</p>
+                      </div><i class="fa-solid fa-xmark uncheck-btn"></i><i class="fa-solid fa-check check-btn"></i><i class="fa-regular fa-trash-can delete-btn"></i>
+                    </div>
+                    <div class="task done">
+                      <div>
+                        <h4>Attend the meeting</h4>
+                        <p>Attend the project business analysis meeting</p>
+                      </div><i class="fa-solid fa-xmark uncheck-btn"></i><i class="fa-solid fa-check check-btn"></i><i class="fa-regular fa-trash-can delete-btn"></i>
+                    </div>
+                    <div class="task">
+                      <div>
+                        <h4>Finish lesson</h4>
+                        <p>Finish explaining flexbox</p>
+                      </div><i class="fa-solid fa-xmark uncheck-btn"></i><i class="fa-solid fa-check check-btn"></i><i class="fa-regular fa-trash-can delete-btn"></i>
+                    </div>
+            </div>
+          </div>
+          <div class="dash-posts">
+            <div class="dash-post-head">
+              <div class="post-title">
+                <h3>Latest Posts</h3>
+              </div>
+              <div id="bullets"></div>
+            </div>
+            <div class="post-heading" id="post-heading"><img src="" alt="">
+              <div>
+                <h6></h6><span></span>
+              </div>
+            </div>
+            <q class="post-body" id="post-body"></q>
+            <div class="post-footer">
+              <div><i class="fa-solid fa-heart"></i><span id="post-likes"></span></div>
+              <div id="arrows"><i class="fa-solid fa-chevron-left" id="previous-post"></i><i class="fa-solid fa-chevron-right" id="next-post"></i></div>
+              <div><i class="fa-solid fa-comments"></i><span id="post-comments"></span></div>
             </div>
           </div>
         </div>
