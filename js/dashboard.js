@@ -290,3 +290,67 @@ fetch("./json/dashboard_posts.json")
   });
 
 // End Posts Dashboard
+
+// ================================================================================ //
+
+// Start Orders Table Dashboard
+
+function statusChecker(statusOrder) {
+  if (statusOrder == "Delivered") {
+    return "delivered";
+  } else if (statusOrder == "Canceled") {
+    return "canceled";
+  } else if (statusOrder == "Pending") {
+    return "pending";
+  } else {
+    return "";
+  }
+}
+
+let bodyTable = document.querySelector("table tbody");
+
+fetch("./json/dashboard_orders.json")
+  .then((response) => response.json())
+  .then((orders) => {
+    orders.forEach((order) => {
+      let orderHolder = document.createElement("tr");
+      bodyTable.appendChild(orderHolder);
+
+      let code = document.createElement("td");
+      code.innerHTML = order.code;
+      code.className = "code";
+      orderHolder.appendChild(code);
+
+      let client = document.createElement("td");
+      let clientName = document.createElement("span");
+      clientName.innerHTML = order.client.name;
+      clientName.className = "client-name";
+      client.appendChild(clientName);
+      let clientEmail = document.createElement("span");
+      clientEmail.innerHTML = order.client.email;
+      clientEmail.className = "client-email";
+      client.appendChild(clientEmail);
+      orderHolder.appendChild(client);
+
+      let date = document.createElement("td");
+      date.innerHTML = order.date;
+      date.className = "date";
+      orderHolder.appendChild(date);
+
+      let status = document.createElement("td");
+      status.innerHTML = order.status;
+      status.className = statusChecker(order.status);
+      orderHolder.appendChild(status);
+
+      let country = document.createElement("td");
+      country.innerHTML = order.country;
+      country.className = "country";
+      orderHolder.appendChild(country);
+
+      let total = document.createElement("td");
+      total.innerHTML = order.total;
+      total.className = "total";
+      orderHolder.appendChild(total);
+    });
+  });
+// End Orders Table Dashboard

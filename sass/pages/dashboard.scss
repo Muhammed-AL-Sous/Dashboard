@@ -829,7 +829,6 @@ body[data-theme="light"] {
   grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
   overflow: hidden;
   padding-top: 20px;
-  padding-bottom: 20px;
   background-color: $bg-primary;
   @media #{$max-mobile} {
     grid-template-columns: minmax(350px, 1fr);
@@ -1207,3 +1206,252 @@ body[data-theme="light"] {
 }
 
 // End Container Tasks & Posts
+
+// ========================================================================= //
+
+.dash-Orders-Status-table {
+  background-color: $bg-primary;
+  padding-bottom: 40px;
+  .dash-ordtab-container {
+    box-shadow: rgba(1, 5, 17, 0.3) 0px 8px 28px 0px;
+    padding: 25px;
+    background-color: $bg-components;
+    margin-left: 20px;
+    margin-right: 20px;
+    @include border-r(12px);
+    .dash-ordtab-head {
+      @include flexbox("space-between", "center");
+      padding-bottom: 30px;
+      h3 {
+        color: $white-color;
+        font-size: 20px;
+        font-weight: 500;
+      }
+      button {
+        border: none;
+        background: $background-buttons;
+        color: $white-color;
+        padding: 10px 15px;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        @include border-r(6px);
+        cursor: pointer;
+      }
+    }
+    .responsive-table {
+      overflow-x: auto;
+      &::-webkit-scrollbar {
+        height: 8px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: $bg-primary;
+        @include border-r(12px);
+        visibility: hidden;
+        @include transition(0.6s);
+      }
+      &::-webkit-scrollbar-track {
+        background-color: $bg-components;
+      }
+      &:hover::-webkit-scrollbar-thumb {
+        visibility: visible;
+      }
+      table {
+        width: 100%;
+        min-width: 1000px;
+        border-spacing: 0;
+        font-size: 15px;
+        text-align: center;
+        thead {
+          tr {
+            th {
+              padding: 15px 0;
+              color: $white-color;
+              i {
+                color: $gray-color;
+                margin-right: 10px;
+              }
+            }
+          }
+        }
+        tbody {
+          tr {
+            &:has(.delivered) {
+              background-color: $bg-hover-components;
+            }
+            td {
+              color: $white-color;
+              font-size: 14px;
+              padding: 20px 0;
+            }
+            .client-name {
+              display: block;
+            }
+            .client-email {
+              font-size: 10px;
+            }
+            .delivered {
+              position: relative;
+              z-index: 0;
+              color: rgb(20, 202, 116);
+              &::before {
+                content: "\f111";
+                font: var(--fa-font-solid);
+                position: absolute;
+                top: 51%;
+                left: 24%;
+                @include transform(translate(-50%, -50%));
+                font-size: 5px;
+              }
+              &::after {
+                content: "";
+                position: absolute;
+                width: 100px;
+                height: 25px;
+                z-index: -1;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: #09363b;
+                @include border-r(4px);
+                border: 1px solid;
+                border-color: rgba(5, 193, 104, 0.2);
+              }
+            }
+            .canceled {
+              position: relative;
+              z-index: 0;
+              color: rgb(255, 90, 101);
+              &::before {
+                content: "\f111";
+                font: var(--fa-font-solid);
+                position: absolute;
+                top: 51%;
+                left: 24%;
+                @include transform(translate(-50%, -50%));
+                font-size: 5px;
+              }
+              &::after {
+                content: "";
+                position: absolute;
+                width: 100px;
+                height: 25px;
+                z-index: -1;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                @include border-r(4px);
+                border: 1px solid;
+                border-color: rgba(255, 90, 101, 0.2);
+                background-color: #3c2442;
+              }
+            }
+            .pending {
+              position: relative;
+              z-index: 0;
+              color: rgb(253, 181, 42);
+              &::before {
+                content: "\f111";
+                font: var(--fa-font-solid);
+                position: absolute;
+                top: 51%;
+                left: 24%;
+                @include transform(translate(-50%, -50%));
+                font-size: 5px;
+              }
+              &::after {
+                content: "";
+                position: absolute;
+                width: 100px;
+                height: 25px;
+                z-index: -1;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                @include border-r(4px);
+                border: 1px solid;
+                border-color: rgba(255, 176, 22, 0.2);
+                background-color: #3c3532;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+body[data-theme="light"] {
+  .dash-Orders-Status-table {
+    background-color: $bg-light;
+    .dash-ordtab-container {
+      box-shadow: 2px 6px 15px 0 rgba(69, 65, 78, 0.1);
+      background-color: $white-color;
+      .dash-ordtab-head {
+        h3 {
+          color: purple;
+          font-weight: 700;
+        }
+        button {
+          background: $background-buttons;
+          color: $white-color;
+          font-weight: 700;
+        }
+      }
+      .responsive-table {
+        &::-webkit-scrollbar-thumb {
+          background-color: #bbb;
+        }
+        &::-webkit-scrollbar-track {
+          background-color: $white-color;
+        }
+        table {
+          thead {
+            tr {
+              th {
+                color: $header-color-light;
+                i {
+                  color: $primary-color;
+                }
+              }
+            }
+          }
+          tbody {
+            tr {
+              &:has(.delivered) {
+                background-color: rgb(72 171 247 / 50%);
+              }
+              td {
+                color: $header-color-light;
+                font-weight: 600;
+              }
+              .delivered {
+                color: $white-color;
+                &::after {
+                  background-color: $green-color;
+                  border-color: $green-color;
+                }
+              }
+              .canceled {
+                color: $white-color;
+                &::after {
+                  border-color: $red-color;
+                  background-color: $red-color;
+                }
+              }
+              .pending {
+                color: $white-color;
+                &::after {
+                  border-color: $orange-color;
+                  background-color: $orange-color;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ========================================================================= //

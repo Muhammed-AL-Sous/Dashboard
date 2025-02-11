@@ -9,11 +9,11 @@ aside.sidebar
         i.fa-solid.fa-magnifying-glass
         input(type="text" placeholder="Search For ...")
     ul.page-links 
-        each item in [["index" , "fa-solid fa-house-chimney" , "Dashboard"], ["profile" ,"fa-solid fa-user" , "Profile"], ["projects" , "fa-solid fa-list-check" , "Projects"], ["pricing" , "fa-solid fa-dollar-sign" , "Pricing"]]
+        each item in [["#" , "fa-solid fa-house-chimney" , "Dashboard"], ["#" ,"fa-solid fa-user" , "Profile"], ["#" , "fa-solid fa-list-check" , "Projects"], ["#" , "fa-solid fa-dollar-sign" , "Pricing"]]
             +sidebarItems(item[0] , item[1] , item[2])
     hr
     ul.page-links-second
-        each Item in [["settings" , "fa-solid fa-gear" , "Settings"] , ["index", "fa-solid fa-arrow-right-from-bracket fa-rotate-180", "Logout"]]
+        each Item in [["#" , "fa-solid fa-gear" , "Settings"] , ["#", "fa-solid fa-arrow-right-from-bracket fa-rotate-180", "Logout"]]
             +sidebarItems(Item[0] , Item[1] , Item[2])
         li.sidebar-check
             +switchToggle(false)

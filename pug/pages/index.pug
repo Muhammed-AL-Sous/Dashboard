@@ -106,4 +106,32 @@ html(lang="en")
                             div
                                 i.fa-solid.fa-comments
                                 span#post-comments
+                .dash-Orders-Status-table
+                    .dash-ordtab-container
+                        .dash-ordtab-head
+                            h3 Orders Status
+                            button Create Order
+                        .responsive-table
+                            table
+                                thead
+                                    tr
+                                        th Code
+                                        th
+                                            i.fa-solid.fa-user
+                                            | Client
+                                        th
+                                            i.fa-solid.fa-calendar-day.fa-flip-horizontal
+                                            | Date
+                                        th
+                                            i.fa-regular.fa-square-check
+                                            | Status
+                                        th
+                                            i.fa-solid.fa-location-dot
+                                            | Country
+                                        th Total
+                                tbody
+                .footer
+                    | Created By  
+                    span
+                        a(class="my-name" href="https://github.com/Muhammed-AL-Sous" target="_blank") Muhammed Al-Sous
         include ../includes/_scripts.pug
