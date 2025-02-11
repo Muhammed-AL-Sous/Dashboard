@@ -987,7 +987,7 @@ body[data-theme="light"] {
 }
 
 .dash-posts {
-  padding: 30px;
+  padding: 25px;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 40px;
@@ -1090,7 +1090,7 @@ body[data-theme="light"] {
     > div {
       min-width: 100px;
       @media #{$max-mobile} {
-        min-width: 50px;
+        min-width: 85px;
       }
       &:first-of-type {
         @include flexbox("flex-start", "center", "", "", "5px");
@@ -1100,6 +1100,9 @@ body[data-theme="light"] {
           color: $red-color;
           font-size: 20px;
           margin-right: 5px;
+          @media #{$max-mobile} {
+            font-size: 15px;
+          }
         }
       }
       > span {
@@ -1108,10 +1111,17 @@ body[data-theme="light"] {
         font-weight: 500;
         position: relative;
         top: -1px;
+        @media #{$max-mobile} {
+          font-size: 15px;
+        }
       }
     }
     #arrows {
       @include flexbox("space-between", "center", "", "", "10px");
+      min-width: 70px;
+      @media #{$max-mobile} {
+        min-width: 50px;
+      }
       > i {
         cursor: pointer;
         color: $gray-color;
