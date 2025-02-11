@@ -210,3 +210,83 @@ deleteTaskBtns.map((deleteBtn) => {
 });
 
 // End Latest Tasks
+
+// =================================================================================== //
+
+// Start Posts Dashboard
+
+const postsBulletsHolder = document.getElementById("bullets");
+const prevPostArrow = document.getElementById("previous-post");
+const nextPostArrow = document.getElementById("next-post");
+const postImage = document.querySelector("#post-heading img");
+const postName = document.querySelector("#post-heading div h6");
+const postTime = document.querySelector("#post-heading div span");
+const postBody = document.getElementById("post-body");
+const postLikes = document.getElementById("post-likes");
+const postComments = document.getElementById("post-comments");
+
+fetch("../json/dashboard_posts.json")
+  .then((response) => response.json())
+  .then((posts) => {
+    for (let i = 0; i < posts.length; i++) {
+      let bullet = document.createElement("span");
+      bullet.setAttribute("data-index", i);
+      postsBulletsHolder.appendChild(bullet);
+    }
+    return posts;
+  })
+  .then((posts) => {
+    const postsBullets = document.querySelectorAll("#bullets span");
+
+    // Start Checker Function
+    function arrowChecker(index, arrow) {
+      if (postsBullets[index].classList.contains("active")) {
+        arrow.classList.add("disabled");
+      } else {
+        arrow.classList.remove("disabled");
+      }
+    }
+    // End Checker Function
+
+    prevPostArrow.addEventListener("click", (e) => {
+      if (!e.target.classList.contains("disabled")) {
+        document
+          .querySelector("#bullets span.active")
+          .previousElementSibling.click();
+      }
+    });
+
+    nextPostArrow.addEventListener("click", (e) => {
+      if (!e.target.classList.contains("disabled")) {
+        document
+          .querySelector("#bullets span.active")
+          .nextElementSibling.click();
+      }
+    });
+
+    for (let i = 0; i < posts.length; i++) {
+      postsBullets[i].addEventListener("click", () => {
+        postsBullets.forEach((bullet) => {
+          bullet.classList.remove("active");
+        });
+        postsBullets[i].classList.add("active");
+        arrowChecker(0, prevPostArrow);
+        arrowChecker(postsBullets.length - 1, nextPostArrow);
+
+        postImage.src = posts[i].image;
+        postImage.alt = `${posts[i].name}'s Photo`;
+        postName.innerHTML = posts[i].name;
+        postTime.innerHTML = posts[i].time;
+        postBody.innerHTML = posts[i].content;
+        postLikes.innerHTML = posts[i].likes;
+        postComments.innerHTML = posts[i].comments;
+      });
+    }
+
+    postsBullets[0].click();
+  })
+  .catch((error) => {
+    console.log("Fetch Error : ", error);
+  });
+
+// End Posts Dashboard

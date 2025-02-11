@@ -45,4 +45,62 @@ body[data-theme="light"] {
   .after-header {
     border-color: #ddd;
   }
+  div:where(.swal2-icon).swal2-warning {
+    border-color: $red-color;
+    color: $red-color;
+  }
+  div:where(.swal2-container) div:where(.swal2-html-container) {
+    color: $gray-color;
+  }
+  div:where(.swal2-container)
+    button:where(.swal2-styled):where(.swal2-confirm) {
+    background-color: $blue-color !important;
+    border-color: $blue-color !important;
+  }
+  div:where(.swal2-container) button:where(.swal2-styled) {
+    box-shadow: unset;
+  }
+  div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-cancel) {
+    background-color: #f44336;
+  }
+  div:where(.swal2-icon).swal2-success .swal2-success-ring {
+    border-color: $green-color;
+  }
+  div:where(.swal2-icon).swal2-success [class^="swal2-success-line"] {
+    background-color: $green-color;
+  }
+}
+
+body[data-theme="dark"] {
+  div:where(.swal2-container) div:where(.swal2-popup) {
+    background-color: $bg-primary !important;
+
+    div:where(.swal2-icon).swal2-warning {
+      border-color: $red-color;
+      color: $red-color;
+    }
+  }
+  div:where(.swal2-container) h2:where(.swal2-title) {
+    color: $white-color !important;
+  }
+  div:where(.swal2-container) div:where(.swal2-html-container) {
+    color: $gray-color;
+  }
+  div:where(.swal2-container)
+    button:where(.swal2-styled):where(.swal2-confirm) {
+    background-color: $blue-color !important;
+    border-color: $blue-color !important;
+  }
+  div:where(.swal2-container) button:where(.swal2-styled) {
+    box-shadow: unset;
+  }
+  div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-cancel) {
+    background-color: #f44336;
+  }
+  div:where(.swal2-icon).swal2-success .swal2-success-ring {
+    border-color: $green-color;
+  }
+  div:where(.swal2-icon).swal2-success [class^="swal2-success-line"] {
+    background-color: $green-color;
+  }
 }

@@ -1,0 +1,34 @@
+[
+  {
+    "image": "images/Chris_Coyier.png",
+    "name": "Chris Coyier",
+    "time": "3 hours ago",
+    "content": "I wish things were different, but it weren't us who changed.",
+    "likes": "170.9k",
+    "comments": "75.7k"
+  },
+  {
+    "image": "images/Leah_Culver.jpg",
+    "name": "Leah Culver",
+    "time": "a week ago",
+    "content": "We all need friends. We die alone, but we live along men.",
+    "likes": "90.8k",
+    "comments": "10.9k"
+  },
+  {
+    "image": "images/Steve_Jobs.jpg",
+    "name": "Steve Jobs",
+    "time": "10 days ago",
+    "content": "Take a gamble that love exists, and do a loving act.",
+    "likes": "146.4k",
+    "comments": "15.5k"
+  },
+  {
+    "image": "images/Marissa_Mayer.png",
+    "name": "Marissa Mayer",
+    "time": "2 weeks ago",
+    "content": "Don't give up. You're going to get kicked in the teeth. A lot. Learn to take a hit, then pick yourself up off the floor. Resilience is the true key to success.",
+    "likes": "162.2k",
+    "comments": "60.2k"
+  }
+]
