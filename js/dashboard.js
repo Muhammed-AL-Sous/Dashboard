@@ -225,7 +225,7 @@ const postBody = document.getElementById("post-body");
 const postLikes = document.getElementById("post-likes");
 const postComments = document.getElementById("post-comments");
 
-fetch("../json/dashboard_posts.json")
+fetch("./json/dashboard_posts.json")
   .then((response) => response.json())
   .then((posts) => {
     for (let i = 0; i < posts.length; i++) {
